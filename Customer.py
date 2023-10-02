@@ -1,4 +1,3 @@
-import BankService_pb2
 import grpc
 import time
 
