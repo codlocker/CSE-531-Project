@@ -1,0 +1,27 @@
+syntax = "proto3";
+package BankService;
+
+service CustomerToBranch{
+    rpc processRequest(Customer) returns(Status) {};
+}
+
+service BranchtoBranch{
+    rpc processRequest(Branch) returns(Status) {};
+}
+
+message Customer {
+    int32 id = 1;
+    string type = 2;
+    string events = 3;
+}
+
+message Branch {
+    int32 id = 1;
+    string type = 2;
+    int32 branch = 3;
+}
+
+message Status {
+    int32 id = 1;
+    string recv = 2;
+}
