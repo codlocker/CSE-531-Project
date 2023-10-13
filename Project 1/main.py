@@ -12,7 +12,7 @@ from utils import config_logger, log_data
 # Initiate logger
 logger = config_logger("Main")
 THREAD_CONCURRENCY=2
-WAIT_TIME_IN_SECONDS = 20
+WAIT_TIME_IN_SECONDS = 10
 
 def parse_json(input_file_path: str):
     try:
@@ -113,7 +113,7 @@ if __name__ == "__main__":
         log_data(
             logger=logger,
             message=f"Started branch {worker.name} on initial balance {branch.balance}"
-            f"with PID {worker.pid} at address {local_address} successfully."
+            f" with PID {worker.pid} at address {local_address} successfully."
         )
 
     log_data(

@@ -27,7 +27,7 @@ class Customer:
     def createStub(self, address: str):
         log_data(
             logger=cust_logger,
-            message=f"Creating a stub for customer to branch at {address}")
+            message=f"Creating a stub for customer #{self.id} to branch at {address}")
         self.stub = BankService_pb2_grpc.BankServiceStub(grpc.insecure_channel(address))
 
         client = grpc.server(
