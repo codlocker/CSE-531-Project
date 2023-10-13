@@ -58,7 +58,7 @@ class Customer:
             
             res = {
                 'interface': event['interface'],
-                'result': RESPONSE_STATUS[response['responseStatus']]
+                'result': RESPONSE_STATUS[response.responseStatus]
             }
 
             if request_op == BankService_pb2.QUERY:
@@ -67,7 +67,7 @@ class Customer:
             record['recv'].append(res)
 
         if record['recv']:
-            with open(f'{self.output_file}') as output:
+            with open(f'{self.output_file}', 'a') as output:
                 json.dump(record, output)
                 output.write('\n')
         return record

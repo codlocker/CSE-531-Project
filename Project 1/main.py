@@ -11,8 +11,8 @@ from utils import config_logger, log_data
 
 # Initiate logger
 logger = config_logger("Main")
-THREAD_CONCURRENCY=5
-WAIT_TIME_IN_SECONDS = 3
+THREAD_CONCURRENCY=2
+WAIT_TIME_IN_SECONDS = 5
 
 def parse_json(input_file_path: str):
     try:
@@ -75,6 +75,7 @@ if __name__ == "__main__":
             input_file = argumentList[idx_2]
         elif argumentList[idx_1] in ("-o", "--output"):
             output_file = argumentList[idx_2]
+                
     
     # 1. Get all events from JSON file
     events = parse_json(input_file_path=input_file)
@@ -97,7 +98,7 @@ if __name__ == "__main__":
 
     for branch in branches:
         branch_port = Allocate_Port()
-        local_address = f"localhost:{branch_port}"
+        local_address = f"127.0.0.1:{branch_port}"
 
         worker = multiprocessing.Process(
             name=f'Branch-{branch.id}',

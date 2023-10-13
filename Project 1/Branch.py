@@ -1,10 +1,12 @@
 import grpc
 import multiprocessing
 from concurrent import futures
+import time
 
 import utils
 import BankService_pb2
 import BankService_pb2_grpc
+from utils import config_logger, log_data, INTERFACE_MAP, RESPONSE_STATUS
 
 logger = utils.config_logger('Branch')
 
@@ -30,10 +32,37 @@ class Branch(BankService_pb2_grpc.BankServiceServicer):
     def MsgDelivery(self, request, context):
         self.recvMsg.append(request)
         balance = None
+        resp_code = BankService_pb2.SUCCESS
         if request.interface == BankService_pb2.QUERY:
             balance = self.Query()
         elif request.interface == BankService_pb2.DEPOSIT:
             balance = self.Deposit(request.amount)
+        elif request.interface == BankService_pb2.WITHDRAW:
+            resp_code, balance = self.Withdraw(request.amount)
+        
+        log_data(
+            logger=logger,
+            message=f"Branch : {self.id} to Customer: {request.s_id} response: {RESPONSE_STATUS[resp_code]}"
+             + f" Op: {INTERFACE_MAP[request.interface]} balance : {balance}"
+        )
+
+        response = BankService_pb2.MsgDeliveryResponse(
+            id=request.s_id,
+            responseStatus=resp_code,
+            amount=balance)
+        
+        if request.d_id != -1 and request.interface == BankService_pb2.DEPOSIT:
+            self.Propagate_Deposit(
+                request_id=request.d_id,
+                amount=request.amount)
+        if request.d_id != -1 and request.interface == BankService_pb2.WITHDRAW and resp_code != BankService_pb2.FAILURE:
+            self.Propagate_Withdraw(
+                request_id=request.d_id,
+                amount=request.amount
+            )
+
+        return response
+
 
     def Query(self):
         return self.balance
@@ -123,3 +152,9 @@ def Create_Branch(branch : Branch, processID: str):
 
     server.add_insecure_port(processID)
     server.start()
+
+    try:
+        while True:
+            time.sleep(86400)
+    except KeyboardInterrupt:
+        server.stop(None)

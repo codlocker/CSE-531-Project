@@ -9,7 +9,7 @@
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",
-            "program": "${file}",
+            "program": "Project 1\\main.py",
             "args": ["-i", "Project 1\\input.json", "-o", "Project 1\\output.json"],
             "console": "integratedTerminal",
             "justMyCode": true
