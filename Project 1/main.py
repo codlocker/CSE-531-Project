@@ -37,7 +37,8 @@ def segregate_events(transactions: list):
         elif transaction['type'] == 'customer':
             customer = Customer(
                 id=transaction['id'],
-                events=transaction['events']
+                events=transaction['events'],
+                output_file=output_file
             )
             c.append(customer)
     branch_ids = [br.id for br in b]
@@ -65,15 +66,15 @@ if __name__ == "__main__":
     input_file = "input.json"
     output_file = "output.json"
 
-    for cur_arg, cur_val in argumentList:
-        if cur_arg in ("-h", "--Help"):
+    for idx_1, idx_2 in zip(range(0, len(argumentList), 2), range(1, len(argumentList), 2)):
+        if argumentList[idx_1] in ("-h", "--Help"):
             log_data(
                 logger=logger,
                 message="Options:\n -i / --Input\t Input json file\n -o / -- Output\t Output json file")
-        elif cur_arg in ("-i", "--Input"):
-            input_file = cur_val
-        elif cur_arg in ("-o", "--output"):
-            output_file = cur_val
+        elif argumentList[idx_1] in ("-i", "--Input"):
+            input_file = argumentList[idx_2]
+        elif argumentList[idx_1] in ("-o", "--output"):
+            output_file = argumentList[idx_2]
     
     # 1. Get all events from JSON file
     events = parse_json(input_file_path=input_file)
@@ -101,7 +102,7 @@ if __name__ == "__main__":
         worker = multiprocessing.Process(
             name=f'Branch-{branch.id}',
             target=Create_Branch,
-            args=(branch, local_address, 5)
+            args=(branch, local_address)
         )
 
         worker.start()
@@ -110,13 +111,13 @@ if __name__ == "__main__":
 
         log_data(
             logger=logger,
-            message=f"Started branch {worker.name} on initial balance {branch.amount}"
+            message=f"Started branch {worker.name} on initial balance {branch.balance}"
             f"with PID {worker.pid} at address {local_address} successfully."
         )
 
     log_data(
         logger=logger,
-        message=f"=== Wait for {WAIT_TIME_IN_SECONDS} before starting other clients==="
+        message=f"=== Wait for {WAIT_TIME_IN_SECONDS} seconds before starting other clients==="
     )
 
     time.sleep(WAIT_TIME_IN_SECONDS)
@@ -129,15 +130,15 @@ if __name__ == "__main__":
 
     for customer in customers:
         branch_addr = None
-        for idx, [id, adr] in enumerate(branch_address):
-            if customer.id == id:
+        for idx, adr in enumerate(branch_address):
+            if customer.id == idx + 1:
                 branch_addr = adr
                 break
         
         worker = multiprocessing.Process(
             name=f"Customer-{customer.id}",
             target=Customer.create_customer_process,
-            args={customer, branch_addr, output_file, THREAD_CONCURRENCY}
+            args=(customer, branch_addr)
         )
         worker.start()
         workers.append(worker)

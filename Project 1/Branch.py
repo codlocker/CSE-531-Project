@@ -8,7 +8,7 @@ import BankService_pb2_grpc
 
 logger = utils.config_logger('Branch')
 
-class Branch(BankService_pb2_grpc.MessageServicer):
+class Branch(BankService_pb2_grpc.BankServiceServicer):
     THREADS = 5
     def __init__(self, id, balance, branches):
         # unique ID of the Branch
@@ -113,10 +113,10 @@ class Branch(BankService_pb2_grpc.MessageServicer):
 
 # Create a branch server
 
-def Create_Branch(branch : Branch, processID):
+def Create_Branch(branch : Branch, processID: str):
     server = grpc.server(
         futures.ThreadPoolExecutor(max_workers=branch.THREADS,),
-        options=('grpc.so_reuseport', 1))
+        options=(('grpc.so_reuseport', 1),))
     
     branch.processID = processID
     BankService_pb2_grpc.add_BankServiceServicer_to_server(branch, server)

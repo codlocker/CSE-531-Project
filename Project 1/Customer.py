@@ -1,5 +1,6 @@
 from concurrent import futures
 import grpc
+import json
 import time
 
 import BankService_pb2
@@ -10,7 +11,7 @@ cust_logger = config_logger("Customer")
 
 class Customer:
     THREADS=5
-    def __init__(self, id, events):
+    def __init__(self, id, events, output_file: str):
         # unique ID of the Customer
         self.id = id
         # events from the input
@@ -19,13 +20,15 @@ class Customer:
         self.recvMsg = list()
         # pointer for the stub
         self.stub = None
+        # Store path to output file
+        self.output_file = output_file
 
     # TODO: students are expected to create the Customer stub
     def createStub(self, address: str):
         log_data(
             logger=cust_logger,
             message=f"Creating a stub for customer to branch at {address}")
-        self.stub = BankService_pb2_grpc.MessageStub(grpc.insecure_channel(address))
+        self.stub = BankService_pb2_grpc.BankServiceStub(grpc.insecure_channel(address))
 
         client = grpc.server(
             futures.ThreadPoolExecutor(max_workers=self.THREADS)
@@ -38,8 +41,8 @@ class Customer:
         record = {'id': self.id, 'recv': []}
         for event in self.events:
             request_id = event['id']
-            request_op = INTERFACE[event['interface']]
-            request_val = event['money']
+            request_op = INTERFACE[event['interface'].upper()]
+            request_val = 0 if 'money' not in event else event['money']
             response = self.stub.MsgDelivery(
                 BankService_pb2.MsgDeliveryRequest(
                     s_id=request_id,
@@ -63,17 +66,22 @@ class Customer:
 
             record['recv'].append(res)
 
+        if record['recv']:
+            with open(f'{self.output_file}') as output:
+                json.dump(record, output)
+                output.write('\n')
         return record
     
-    def create_customer_process(self, cust_pid, branch_pid):
+    def create_customer_process(self, branch_pid):
         log_data(
             logger=cust_logger,
             message=f"Running client customer #{self.id} connecting to server {branch_pid}..."
         )
 
-        Customer.create_customer_process(
-            self,
-            branch_pid
-        )
+        if branch_pid:
+            Customer.createStub(
+                self,
+                branch_pid[1]
+            )
 
-        Customer.executeEvents(self)
+            Customer.executeEvents(self)
