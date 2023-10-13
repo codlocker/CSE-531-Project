@@ -11,7 +11,7 @@ from utils import config_logger, log_data, INTERFACE_MAP, RESPONSE_STATUS
 logger = utils.config_logger('Branch')
 
 class Branch(BankService_pb2_grpc.BankServiceServicer):
-    THREADS = 5
+    THREADS = 2
     def __init__(self, id, balance, branches):
         # unique ID of the Branch
         self.id = id
@@ -25,7 +25,7 @@ class Branch(BankService_pb2_grpc.BankServiceServicer):
         self.recvMsg = list()
         # iterate the processID of the branches
         # TODO: students are expected to store the processID of the branches
-        self.processID = ''
+        self.address = ''
         pass
 
     # TODO: students are expected to process requests from both Client and Branch
@@ -34,6 +34,7 @@ class Branch(BankService_pb2_grpc.BankServiceServicer):
         balance = None
         resp_code = BankService_pb2.SUCCESS
         if request.interface == BankService_pb2.QUERY:
+            time.sleep(10)
             balance = self.Query()
         elif request.interface == BankService_pb2.DEPOSIT:
             balance = self.Deposit(request.amount)
@@ -42,7 +43,7 @@ class Branch(BankService_pb2_grpc.BankServiceServicer):
         
         log_data(
             logger=logger,
-            message=f"Branch : {self.id} to Customer: {request.s_id} response: {RESPONSE_STATUS[resp_code]}"
+            message=f"Branch : {self.id} to event: {request.s_id} response: {RESPONSE_STATUS[resp_code]}"
              + f" Op: {INTERFACE_MAP[request.interface]} balance : {balance}"
         )
 
@@ -55,7 +56,7 @@ class Branch(BankService_pb2_grpc.BankServiceServicer):
             self.Propagate_Deposit(
                 request_id=request.d_id,
                 amount=request.amount)
-        if request.d_id != -1 and request.interface == BankService_pb2.WITHDRAW and resp_code != BankService_pb2.FAILURE:
+        if request.d_id != -1 and request.interface == BankService_pb2.WITHDRAW and resp_code == BankService_pb2.SUCCESS:
             self.Propagate_Withdraw(
                 request_id=request.d_id,
                 amount=request.amount
@@ -91,7 +92,7 @@ class Branch(BankService_pb2_grpc.BankServiceServicer):
                 logger=logger,
                 message=f'Send request to Branch : {request_id} from Branch : {self.id}.'
                 f'Operation {utils.INTERFACE_MAP[BankService_pb2.DEPOSIT]} returns {utils.RESPONSE_STATUS[response.responseStatus]}'
-                f'money {response.amount}'
+                f' money {response.amount}'
             )
 
     def Withdraw(self, w_amount):
@@ -130,7 +131,7 @@ class Branch(BankService_pb2_grpc.BankServiceServicer):
             return
         for b in self.branches:
             if b != self.id:
-                process_id = self.processID
+                process_id = f"localhost:{self.branches[b]}"
                 utils.log_data(
                     logger=logger,
                     message=f'Initializing branch to branch stub at {process_id}'
@@ -147,7 +148,7 @@ def Create_Branch(branch : Branch, processID: str):
         futures.ThreadPoolExecutor(max_workers=branch.THREADS,),
         options=(('grpc.so_reuseport', 1),))
     
-    branch.processID = processID
+    branch.address = processID
     BankService_pb2_grpc.add_BankServiceServicer_to_server(branch, server)
 
     server.add_insecure_port(processID)
