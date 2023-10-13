@@ -1,13 +1,18 @@
 import json
+import multiprocessing
 import os
 import sys, getopt
-from Branch import Branch
+from Branch import Branch, Create_Branch
 from Customer import Customer
+import socket
+import time
 
 from utils import config_logger, log_data
 
 # Initiate logger
 logger = config_logger("Main")
+THREAD_CONCURRENCY=5
+WAIT_TIME_IN_SECONDS = 3
 
 def parse_json(input_file_path: str):
     try:
@@ -40,6 +45,13 @@ def segregate_events(transactions: list):
         br.branches = branch_ids
 
     return b, c
+
+def Allocate_Port():
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.bind(('localhost', 0))
+        s.listen(1)
+        free_port = s.getsockname()[1]
+    return free_port
 
 if __name__ == "__main__":
     argumentList = sys.argv[1:]
@@ -74,4 +86,61 @@ if __name__ == "__main__":
 
     for b in branches:
         log_data(logger=logger, message=f"Branch has ID: {b.id} with balance {b.balance} the following branches {str(b.branches)}")
-            
+
+    log_data(
+        logger=logger,
+        message=f'==== Start process for branches===='
+    )
+    workers = []
+    branch_address = []
+
+    for branch in branches:
+        branch_port = Allocate_Port()
+        local_address = f"localhost:{branch_port}"
+
+        worker = multiprocessing.Process(
+            name=f'Branch-{branch.id}',
+            target=Create_Branch,
+            args=(branch, local_address, 5)
+        )
+
+        worker.start()
+        workers.append(worker)
+        branch_address.append([ branch.id, local_address])
+
+        log_data(
+            logger=logger,
+            message=f"Started branch {worker.name} on initial balance {branch.amount}"
+            f"with PID {worker.pid} at address {local_address} successfully."
+        )
+
+    log_data(
+        logger=logger,
+        message=f"=== Wait for {WAIT_TIME_IN_SECONDS} before starting other clients==="
+    )
+
+    time.sleep(WAIT_TIME_IN_SECONDS)
+
+    log_data(
+        logger=logger,
+        message=f"=== Starting process for customers==="
+    )
+
+
+    for customer in customers:
+        branch_addr = None
+        for idx, [id, adr] in enumerate(branch_address):
+            if customer.id == id:
+                branch_addr = adr
+                break
+        
+        worker = multiprocessing.Process(
+            name=f"Customer-{customer.id}",
+            target=Customer.create_customer_process,
+            args={customer, branch_addr, output_file, THREAD_CONCURRENCY}
+        )
+        worker.start()
+        workers.append(worker)
+
+    for worker in workers:
+        worker.join()

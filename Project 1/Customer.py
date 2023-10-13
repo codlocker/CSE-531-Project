@@ -6,7 +6,7 @@ import BankService_pb2
 import BankService_pb2_grpc
 from utils import config_logger, log_data, INTERFACE, RESPONSE_STATUS
 
-logger = config_logger("Customer")
+cust_logger = config_logger("Customer")
 
 class Customer:
     THREADS=5
@@ -23,7 +23,7 @@ class Customer:
     # TODO: students are expected to create the Customer stub
     def createStub(self, address: str):
         log_data(
-            logger=logger,
+            logger=cust_logger,
             message=f"Creating a stub for customer to branch at {address}")
         self.stub = BankService_pb2_grpc.MessageStub(grpc.insecure_channel(address))
 
@@ -50,7 +50,7 @@ class Customer:
             )
 
             log_data(
-                logger=logger,
+                logger=cust_logger,
                 message=f'Response returned has status: {response.responseStatus} with money: {response.amount}')
             
             res = {
@@ -64,3 +64,16 @@ class Customer:
             record['recv'].append(res)
 
         return record
+    
+    def create_customer_process(self, cust_pid, branch_pid):
+        log_data(
+            logger=cust_logger,
+            message=f"Running client customer #{self.id} connecting to server {branch_pid}..."
+        )
+
+        Customer.create_customer_process(
+            self,
+            branch_pid
+        )
+
+        Customer.executeEvents(self)
