@@ -43,7 +43,7 @@ class Branch(BankService_pb2_grpc.BankServiceServicer):
         
         log_data(
             logger=logger,
-            message=f"Branch : {self.id} to Customer #{self.id} event: {request.s_id} response: {RESPONSE_STATUS[resp_code]}"
+            message=f"Branch : {self.id} to event: {request.s_id} response: {RESPONSE_STATUS[resp_code]}"
              + f" Op: {INTERFACE_MAP[request.interface]} balance : {balance}"
         )
 
@@ -92,7 +92,7 @@ class Branch(BankService_pb2_grpc.BankServiceServicer):
                 logger=logger,
                 message=f'Send request to Branch : {request_id} from Branch : {self.id}.'
                 f'Operation {utils.INTERFACE_MAP[BankService_pb2.DEPOSIT]} returns {utils.RESPONSE_STATUS[response.responseStatus]}'
-                f'money {response.amount}'
+                f' money {response.amount}'
             )
 
     def Withdraw(self, w_amount):

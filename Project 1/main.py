@@ -1,11 +1,13 @@
 import json
 import multiprocessing
 import os
-import sys, getopt
-from Branch import Branch, Create_Branch
-from Customer import Customer
+import sys
 import socket
 import time
+from random import randint
+
+from Branch import Branch, Create_Branch
+from Customer import Customer
 
 from utils import config_logger, log_data
 
@@ -13,6 +15,8 @@ from utils import config_logger, log_data
 logger = config_logger("Main")
 THREAD_CONCURRENCY=2
 WAIT_TIME_IN_SECONDS = 5
+
+select_init_port = randint(50000, 60001)
 
 def parse_json(input_file_path: str):
     try:
@@ -41,10 +45,10 @@ def segregate_events(transactions: list):
                 output_file=output_file
             )
             c.append(customer)
-    branch_ids = {br.id: str(50000 + br.id) for br in b}
+    branch_ids = {br.id: str(select_init_port + br.id) for br in b}
     for br in b:
         br.branches = branch_ids
-        br.address = f"127.0.0.1:{str(50000 + br.id)}"
+        br.address = f"127.0.0.1:{str(select_init_port + br.id)}"
 
     return b, c
 
