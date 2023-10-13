@@ -43,7 +43,7 @@ class Branch(BankService_pb2_grpc.BankServiceServicer):
         
         log_data(
             logger=logger,
-            message=f"Branch : {self.id} to Customer event: {request.s_id} response: {RESPONSE_STATUS[resp_code]}"
+            message=f"Branch : {self.id} to Customer #{self.id} event: {request.s_id} response: {RESPONSE_STATUS[resp_code]}"
              + f" Op: {INTERFACE_MAP[request.interface]} balance : {balance}"
         )
 

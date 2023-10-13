@@ -12,7 +12,7 @@ from utils import config_logger, log_data
 # Initiate logger
 logger = config_logger("Main")
 THREAD_CONCURRENCY=2
-WAIT_TIME_IN_SECONDS = 10
+WAIT_TIME_IN_SECONDS = 5
 
 def parse_json(input_file_path: str):
     try:
@@ -142,7 +142,6 @@ if __name__ == "__main__":
             args=(customer, branch_addr)
         )
         worker.start()
-        workers.append(worker)
-
-    for worker in workers:
         worker.join()
+        
+        workers.append(worker)
