@@ -5,12 +5,12 @@ import time
 
 import BankService_pb2
 import BankService_pb2_grpc
-from utils import config_logger, log_data, INTERFACE, RESPONSE_STATUS
+from utils import config_logger, log_data, INTERFACE, RESPONSE_STATUS, INTERFACE_MAP
 
 cust_logger = config_logger("Customer")
 
 class Customer:
-    THREADS=5
+    THREADS=2
     def __init__(self, id, events, output_file: str):
         # unique ID of the Customer
         self.id = id
@@ -54,10 +54,10 @@ class Customer:
 
             log_data(
                 logger=cust_logger,
-                message=f'Response returned has status: {response.responseStatus} with money: {response.amount}')
+                message=f'Response returned has status: {RESPONSE_STATUS[response.responseStatus]} with money: {response.amount}')
             
             res = {
-                'interface': event['interface'],
+                'interface': INTERFACE_MAP[request_op],
                 'result': RESPONSE_STATUS[response.responseStatus]
             }
 
@@ -81,7 +81,7 @@ class Customer:
         if branch_pid:
             Customer.createStub(
                 self,
-                branch_pid[1]
+                branch_pid
             )
 
             Customer.executeEvents(self)

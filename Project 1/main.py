@@ -12,7 +12,7 @@ from utils import config_logger, log_data
 # Initiate logger
 logger = config_logger("Main")
 THREAD_CONCURRENCY=2
-WAIT_TIME_IN_SECONDS = 5
+WAIT_TIME_IN_SECONDS = 20
 
 def parse_json(input_file_path: str):
     try:
@@ -131,8 +131,8 @@ if __name__ == "__main__":
 
     for customer in customers:
         branch_addr = None
-        for idx, adr in enumerate(branch_address):
-            if customer.id == idx + 1:
+        for [idx, adr] in branch_address:
+            if customer.id == idx:
                 branch_addr = adr
                 break
         
