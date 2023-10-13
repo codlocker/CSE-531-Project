@@ -131,7 +131,7 @@ class Branch(BankService_pb2_grpc.BankServiceServicer):
             return
         for b in self.branches:
             if b != self.id:
-                process_id = self.address
+                process_id = f"localhost:{self.branches[b]}"
                 utils.log_data(
                     logger=logger,
                     message=f'Initializing branch to branch stub at {process_id}'

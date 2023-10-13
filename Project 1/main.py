@@ -41,18 +41,12 @@ def segregate_events(transactions: list):
                 output_file=output_file
             )
             c.append(customer)
-    branch_ids = [br.id for br in b]
+    branch_ids = {br.id: str(50000 + br.id) for br in b}
     for br in b:
         br.branches = branch_ids
+        br.address = f"127.0.0.1:{str(50000 + br.id)}"
 
     return b, c
-
-def Allocate_Port():
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.bind(('localhost', 0))
-        s.listen(1)
-        free_port = s.getsockname()[1]
-    return free_port
 
 if __name__ == "__main__":
     argumentList = sys.argv[1:]
@@ -97,8 +91,7 @@ if __name__ == "__main__":
     branch_address = []
 
     for branch in branches:
-        branch_port = Allocate_Port()
-        local_address = f"127.0.0.1:{branch_port}"
+        local_address = branch.address
 
         worker = multiprocessing.Process(
             name=f'Branch-{branch.id}',
