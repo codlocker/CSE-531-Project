@@ -9,6 +9,7 @@ from utils import config_logger, log_data, INTERFACE, RESPONSE_STATUS, INTERFACE
 
 cust_logger = config_logger("Customer")
 
+# The customer class for customer process
 class Customer:
     THREADS=2
     def __init__(self, id, events, output_file: str):
@@ -23,7 +24,7 @@ class Customer:
         # Store path to output file
         self.output_file = output_file
 
-    # TODO: students are expected to create the Customer stub
+    # Create the customer stub
     def createStub(self, address: str):
         log_data(
             logger=cust_logger,
@@ -36,7 +37,7 @@ class Customer:
 
         client.start()
 
-    # TODO: students are expected to send out the events to the Bank
+    # Send events to the bank
     def executeEvents(self):
         record = {'id': self.id, 'recv': []}
         for event in self.events:
@@ -72,6 +73,7 @@ class Customer:
                 output.write('\n')
         return record
     
+    # Create the customer process.
     def create_customer_process(self, branch_pid):
         log_data(
             logger=cust_logger,

@@ -11,7 +11,9 @@ from utils import config_logger, log_data, INTERFACE_MAP, RESPONSE_STATUS
 logger = utils.config_logger('Branch')
 
 class Branch(BankService_pb2_grpc.BankServiceServicer):
-    THREADS = 2
+    THREADS = 2 # A const determining number of threads
+
+    # Initialize the constructor
     def __init__(self, id, balance, branches):
         # unique ID of the Branch
         self.id = id
@@ -24,11 +26,12 @@ class Branch(BankService_pb2_grpc.BankServiceServicer):
         # a list of received messages used for debugging purpose
         self.recvMsg = list()
         # iterate the processID of the branches
-        # TODO: students are expected to store the processID of the branches
         self.address = ''
         pass
 
-    # TODO: students are expected to process requests from both Client and Branch
+    # Update the msg delivery mechanism in relation to proto
+    # This funciton proceses the request from customer and runs the
+    # branch to branch communication.
     def MsgDelivery(self, request, context):
         self.recvMsg.append(request)
         balance = None
@@ -64,10 +67,11 @@ class Branch(BankService_pb2_grpc.BankServiceServicer):
 
         return response
 
-
+    # Query the balance in the current bank proces
     def Query(self):
         return self.balance
     
+    # Perform the deposit function to the account
     def Deposit(self, d_amount):
         if d_amount <= 0:
             return BankService_pb2.ERROR
@@ -75,6 +79,7 @@ class Branch(BankService_pb2_grpc.BankServiceServicer):
         self.balance += d_amount
         return self.balance
     
+    # Propagate the deposit transaction to the rest of the branches
     def Propagate_Deposit(self, request_id, amount):
         if not self.stubList:
             self.Create_StubList()
@@ -95,6 +100,7 @@ class Branch(BankService_pb2_grpc.BankServiceServicer):
                 f' money {response.amount}'
             )
 
+    # Perform the withdraw function of the amount.
     def Withdraw(self, w_amount):
         if w_amount <= 0:
             return BankService_pb2.ERROR
@@ -106,6 +112,7 @@ class Branch(BankService_pb2_grpc.BankServiceServicer):
 
         return BankService_pb2.SUCCESS, self.balance
 
+    # Propagate the withdraw action to the rest of the branches.
     def Propagate_Withdraw(self, request_id, amount):
         if not self.stubList:
             self.Create_StubList()
@@ -126,6 +133,7 @@ class Branch(BankService_pb2_grpc.BankServiceServicer):
                 f'money {response.amount}'
             )
 
+    # Creates the stub list for branch ot branch communication
     def Create_StubList(self):
         if len(self.stubList) == len(self.branches):
             return
@@ -142,7 +150,6 @@ class Branch(BankService_pb2_grpc.BankServiceServicer):
 
 
 # Create a branch server
-
 def Create_Branch(branch : Branch, processID: str):
     server = grpc.server(
         futures.ThreadPoolExecutor(max_workers=branch.THREADS,),

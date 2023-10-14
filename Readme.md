@@ -15,7 +15,7 @@
 
 ### RUN INSTRUCTIONS
 1. Run the command ```cd CSE-531-Project/Project 1``` after cloning
-2. Run the following the command the build the proto files: ```python3 -m grpc_tools.protoc -I . .\BankService.proto  --python_out=. --grpc_python_out=.```
+2. Run the following the command the build the proto files: ```python -m grpc_tools.protoc -I . .\BankService.proto  --python_out=. --grpc_python_out=.```
 3. The entry point of the code is through main.py
    - -i 'Input file path'
    - -o 'Output file path'
