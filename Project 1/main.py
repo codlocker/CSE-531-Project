@@ -73,6 +73,8 @@ if __name__ == "__main__":
             input_file = argumentList[idx_2]
         elif argumentList[idx_1] in ("-o", "--output"):
             output_file = argumentList[idx_2]
+            with open(output_file, 'w') as f:
+                print(f'Output file {output_file} opened')
                 
     
     # 1. Get all events from JSON file
