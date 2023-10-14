@@ -6,6 +6,10 @@ INTERFACE_MAP = {0: "QUERY", 1: "DEPOSIT", 2: "WITHDRAW"}
 RESPONSE_STATUS = {0: "SUCCESS", 1: "FAILURE", 2: "ERROR"}
 RESPONSE_STATUS_MAP = {"SUCCESS": 0, "FAILURE": 1, "ERROR": 2}
 
+"""
+THis is a config using the python logging system
+to configure for logging results.
+"""
 def config_logger(name: str):
     logger = logging.getLogger(name)
     handler = logging.StreamHandler(sys.stdout)
@@ -14,7 +18,9 @@ def config_logger(name: str):
     logger.addHandler(handler)
     logger.setLevel(logging.DEBUG)
     return logger
-
+'''
+Performs the logging action.
+'''
 def log_data(logger: logging.Logger, message: str):
     logger.info(message)
     sys.stdout.flush()
