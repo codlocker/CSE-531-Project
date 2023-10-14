@@ -26,4 +26,4 @@
 - On running the [input.json](https://github.com/codlocker/CSE-531-Project/blob/develop/Project%201/input.json), the output is as follows : [output.json](https://github.com/codlocker/CSE-531-Project/blob/develop/Project%201/output.json)
 - On running the [input1.json](https://github.com/codlocker/CSE-531-Project/blob/develop/Project%201/input1.json), the output is follows : [output1.json](https://github.com/codlocker/CSE-531-Project/blob/develop/Project%201/output1.json)
 
-![Project1-result](Project 1/Project1-Result.png)
+![Project1-result](Project1-Result.png)
