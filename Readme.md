@@ -9,8 +9,15 @@
    - protobuf==3.14.0
 5. Activate the newly created environment
 6. Unzip the code files and cd to the directory which has 'main.py' and the '.proto' file
-7. Run the following the command the build the proto files: ```ps python3 -m grpc_tools.protoc -I . .\BankService.proto  --python_out=. --grpc_python_out=.```
-8. The entry point of the code is through main.py
-   - -i <Input file path>
-   - -o <Output file path>
+
+### RUN INSTRUCTIONS
+1. Run the following the command the build the proto files: ```python3 -m grpc_tools.protoc -I . .\BankService.proto  --python_out=. --grpc_python_out=.```
+2. The entry point of the code is through main.py
+   - -i 'Input file path'
+   - -o 'Output file path'
    - Example command : python .\main.py -o output.json -i input.json
+  
+### RESULTS
+
+- On running the [input.json](https://github.com/codlocker/CSE-531-Project/blob/develop/Project%201/input.json), the output is as follows : [output.json](https://github.com/codlocker/CSE-531-Project/blob/develop/Project%201/output.json)
+- On running the [input1.json](https://github.com/codlocker/CSE-531-Project/blob/develop/Project%201/input1.json), the output is follows : [output1.json](https://github.com/codlocker/CSE-531-Project/blob/develop/Project%201/output1.json) 
