@@ -37,7 +37,6 @@ class Branch(BankService_pb2_grpc.BankServiceServicer):
         balance = None
         resp_code = BankService_pb2.SUCCESS
         if request.interface == BankService_pb2.QUERY:
-            time.sleep(10)
             balance = self.Query()
         elif request.interface == BankService_pb2.DEPOSIT:
             balance = self.Deposit(request.amount)
