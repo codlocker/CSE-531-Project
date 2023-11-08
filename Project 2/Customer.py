@@ -12,7 +12,7 @@ cust_logger = config_logger("Customer")
 # The customer class for customer process
 class Customer:
     THREADS=2
-    def __init__(self, id, events, output_file: str):
+    def __init__(self, id, events, output_file: str, customer_events: dict):
         # unique ID of the Customer
         self.id = id
         # events from the input
@@ -23,6 +23,10 @@ class Customer:
         self.stub = None
         # Store path to output file
         self.output_file = output_file
+        # Stores result in clock
+        self.clock = 0
+        # Stores customer events
+        self.customer_events = customer_events
 
     # Create the customer stub
     def createStub(self, address: str):
@@ -44,15 +48,24 @@ class Customer:
             request_id = event['id']
             request_op = INTERFACE[event['interface'].upper()]
             request_val = 0 if 'money' not in event else event['money']
-            response = self.stub.MsgDelivery(
+
+            self.add_customer_event(
+                id=request_id,
+                interface=event['interface'],
+                clock=self.clock
+            )
+            
+            response = self.stub.MessageDelivery(
                 BankService2_pb2.MsgRequest(
                     s_id=request_id,
                     d_id=self.id,
                     interface=request_op,
                     amount=request_val,
-                    clock=0
+                    clock=self.clock
                 )
             )
+
+            self.clock += 1
 
             log_data(
                 logger=cust_logger,
@@ -88,3 +101,16 @@ class Customer:
             )
 
             Customer.executeEvents(self)
+
+    def add_customer_event(self, id : int, interface : str, clock : int):
+        log = {
+                'customer-request-id': id,
+                'logical_clock': clock,
+                'interface': interface,
+                'comment': f'event_sent from customer {self.id}'
+            }
+        if id not in self.customer_events:
+            self.customer_events[id] = [log]
+        else:
+            self.customer_events[id].append(log)
+        

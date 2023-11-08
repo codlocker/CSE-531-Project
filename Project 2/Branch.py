@@ -14,7 +14,7 @@ class Branch(BankService2_pb2_grpc.BankService2Servicer):
     THREADS = 2 # A const determining number of threads
 
     # Initialize the constructor
-    def __init__(self, id, balance, branches, branch_logger, event_logger):
+    def __init__(self, id, balance, branches, branch_logger):
         # unique ID of the Branch
         self.id = id
         # replica of the Branch's balance
@@ -31,9 +31,6 @@ class Branch(BankService2_pb2_grpc.BankService2Servicer):
         self.clock = 0
         # Branch activity monitoring
         self.branch_logger = branch_logger
-        # Event logger for events between branch and customer
-        self.event_logger = event_logger
-        pass
 
     # Update the msg delivery mechanism in relation to proto
     # This funciton proceses the request from customer and runs the
@@ -42,6 +39,20 @@ class Branch(BankService2_pb2_grpc.BankService2Servicer):
         self.recvMsg.append(request)
         balance = None
         resp_code = BankService2_pb2.SUCCESS
+
+        if request.d_id != -1:
+            self.event_request(
+                clock=request.clock,
+                interface=request.interface,
+                id=request.s_id
+            )
+        else:
+            self.propagate_request(
+                clock=request.clock,
+                interface=f'propagate_{request.interface}',
+                id=request.s_id
+            )
+        
         if request.interface == BankService2_pb2.QUERY:
             balance = self.Query()
         elif request.interface == BankService2_pb2.DEPOSIT:
@@ -58,16 +69,19 @@ class Branch(BankService2_pb2_grpc.BankService2Servicer):
         response = BankService2_pb2.MsgResponse(
             id=request.s_id,
             responseStatus=resp_code,
-            amount=balance)
+            amount=balance,
+            clock=self.clock)
         
         if request.d_id != -1 and request.interface == BankService2_pb2.DEPOSIT:
             self.Propagate_Deposit(
                 request_id=request.d_id,
-                amount=request.amount)
+                amount=request.amount,
+                request_clock=request.clock)
         if request.d_id != -1 and request.interface == BankService2_pb2.WITHDRAW and resp_code == BankService2_pb2.SUCCESS:
             self.Propagate_Withdraw(
                 request_id=request.d_id,
-                amount=request.amount
+                amount=request.amount,
+
             )
 
         return response
@@ -85,10 +99,15 @@ class Branch(BankService2_pb2_grpc.BankService2Servicer):
         return self.balance
     
     # Propagate the deposit transaction to the rest of the branches
-    def Propagate_Deposit(self, request_id, amount):
+    def Propagate_Deposit(self, request_id, amount, request_clock):
         if not self.stubList:
             self.Create_StubList()
         for stub in self.stubList:
+            self.event_sent(
+                id=self.id,
+                interface='deposit',
+                clock=request_clock,
+            )
             response = stub.MsgDelivery(
                 BankService2_pb2.MsgRequest(
                     s_id=request_id,
@@ -118,10 +137,16 @@ class Branch(BankService2_pb2_grpc.BankService2Servicer):
         return BankService2_pb2.SUCCESS, self.balance
 
     # Propagate the withdraw action to the rest of the branches.
-    def Propagate_Withdraw(self, request_id, amount):
+    def Propagate_Withdraw(self, request_id, amount, request_clock):
         if not self.stubList:
             self.Create_StubList()
         for stub in self.stubList:
+            self.event_sent(
+                id=self.id,
+                interface='withdraw',
+                clock=request_clock
+            )
+
             response = stub.MsgDelivery(
                 BankService2_pb2.MsgRequest(
                     s_id=request_id,
@@ -153,7 +178,46 @@ class Branch(BankService2_pb2_grpc.BankService2Servicer):
                     grpc.insecure_channel(process_id)
                 ))
 
+    ###################################
+    # Clock related functionalities   #
+    ###################################
 
+    def event_request(self, id: int, interface: str, clock: int):
+        self.clock = max(self.clock, clock) + 1
+        self.add_branch_log({
+            "customer-request-id": id,
+            "interface": interface,
+            "logical_clock": clock,
+            "comment": f"event_recv from customer {id}" 
+        })
+
+    def event_sent(self, id: int, interface: str, clock: int):
+        self.clock = max(self.clock, clock) + 1
+        self.add_branch_log({
+            "customer-request-id": id,
+            "interface": interface,
+            "logical_clock": clock,
+            "comment": f"event_sent to branch {id}" 
+        })
+
+    def propagate_request(self, id: int, interface: str, clock: int):
+        self.clock = max(self.clock, clock) + 1
+        self.add_branch_log({
+            "customer-request-id": id,
+            "interface": interface,
+            "logical_clock": clock,
+            "comment": f"event_recv from branch {id}" 
+        })
+    ####################################################
+    # Event / Branch Logging related functionalities   #
+    ####################################################
+
+    def add_branch_log(self, log):
+        if self.id not in self.branch_logger:
+            self.branch_logger[self.id] = [log]
+        else:
+            self.branch_logger[self.id].append(log)
+    
 # Create a branch server
 def Create_Branch(branch : Branch, processID: str):
     server = grpc.server(
