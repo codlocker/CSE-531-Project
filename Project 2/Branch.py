@@ -4,17 +4,17 @@ from concurrent import futures
 import time
 
 import utils
-import BankService_pb2
-import BankService_pb2_grpc
+import BankService2_pb2
+import BankService2_pb2_grpc
 from utils import config_logger, log_data, INTERFACE_MAP, RESPONSE_STATUS
 
 logger = utils.config_logger('Branch')
 
-class Branch(BankService_pb2_grpc.BankServiceServicer):
+class Branch(BankService2_pb2_grpc.BankService2Servicer):
     THREADS = 2 # A const determining number of threads
 
     # Initialize the constructor
-    def __init__(self, id, balance, branches):
+    def __init__(self, id, balance, branches, branch_logger, event_logger):
         # unique ID of the Branch
         self.id = id
         # replica of the Branch's balance
@@ -27,6 +27,12 @@ class Branch(BankService_pb2_grpc.BankServiceServicer):
         self.recvMsg = list()
         # iterate the processID of the branches
         self.address = ''
+        # Initiate the clock
+        self.clock = 0
+        # Branch activity monitoring
+        self.branch_logger = branch_logger
+        # Event logger for events between branch and customer
+        self.event_logger = event_logger
         pass
 
     # Update the msg delivery mechanism in relation to proto
@@ -35,12 +41,12 @@ class Branch(BankService_pb2_grpc.BankServiceServicer):
     def MsgDelivery(self, request, context):
         self.recvMsg.append(request)
         balance = None
-        resp_code = BankService_pb2.SUCCESS
-        if request.interface == BankService_pb2.QUERY:
+        resp_code = BankService2_pb2.SUCCESS
+        if request.interface == BankService2_pb2.QUERY:
             balance = self.Query()
-        elif request.interface == BankService_pb2.DEPOSIT:
+        elif request.interface == BankService2_pb2.DEPOSIT:
             balance = self.Deposit(request.amount)
-        elif request.interface == BankService_pb2.WITHDRAW:
+        elif request.interface == BankService2_pb2.WITHDRAW:
             resp_code, balance = self.Withdraw(request.amount)
         
         log_data(
@@ -49,16 +55,16 @@ class Branch(BankService_pb2_grpc.BankServiceServicer):
              + f" Op: {INTERFACE_MAP[request.interface]} balance : {balance}"
         )
 
-        response = BankService_pb2.MsgDeliveryResponse(
+        response = BankService2_pb2.MsgResponse(
             id=request.s_id,
             responseStatus=resp_code,
             amount=balance)
         
-        if request.d_id != -1 and request.interface == BankService_pb2.DEPOSIT:
+        if request.d_id != -1 and request.interface == BankService2_pb2.DEPOSIT:
             self.Propagate_Deposit(
                 request_id=request.d_id,
                 amount=request.amount)
-        if request.d_id != -1 and request.interface == BankService_pb2.WITHDRAW and resp_code == BankService_pb2.SUCCESS:
+        if request.d_id != -1 and request.interface == BankService2_pb2.WITHDRAW and resp_code == BankService2_pb2.SUCCESS:
             self.Propagate_Withdraw(
                 request_id=request.d_id,
                 amount=request.amount
@@ -73,7 +79,7 @@ class Branch(BankService_pb2_grpc.BankServiceServicer):
     # Perform the deposit function to the account
     def Deposit(self, d_amount):
         if d_amount <= 0:
-            return BankService_pb2.ERROR
+            return BankService2_pb2.ERROR
         
         self.balance += d_amount
         return self.balance
@@ -84,10 +90,10 @@ class Branch(BankService_pb2_grpc.BankServiceServicer):
             self.Create_StubList()
         for stub in self.stubList:
             response = stub.MsgDelivery(
-                BankService_pb2.MsgDeliveryRequest(
+                BankService2_pb2.MsgRequest(
                     s_id=request_id,
                     d_id=-1,
-                    interface=BankService_pb2.DEPOSIT,
+                    interface=BankService2_pb2.DEPOSIT,
                     amount=amount
                 )
             )
@@ -95,21 +101,21 @@ class Branch(BankService_pb2_grpc.BankServiceServicer):
             utils.log_data(
                 logger=logger,
                 message=f'Send request to Branch : {request_id} from Branch : {self.id}.'
-                f'Operation {utils.INTERFACE_MAP[BankService_pb2.DEPOSIT]} returns {utils.RESPONSE_STATUS[response.responseStatus]}'
+                f'Operation {utils.INTERFACE_MAP[BankService2_pb2.DEPOSIT]} returns {utils.RESPONSE_STATUS[response.responseStatus]}'
                 f' money {response.amount}'
             )
 
     # Perform the withdraw function of the amount.
     def Withdraw(self, w_amount):
         if w_amount <= 0:
-            return BankService_pb2.ERROR
+            return BankService2_pb2.ERROR
         
         if self.balance - w_amount < 0:
-            return BankService_pb2.FAILURE
+            return BankService2_pb2.FAILURE
         
         self.balance -= w_amount
 
-        return BankService_pb2.SUCCESS, self.balance
+        return BankService2_pb2.SUCCESS, self.balance
 
     # Propagate the withdraw action to the rest of the branches.
     def Propagate_Withdraw(self, request_id, amount):
@@ -117,10 +123,10 @@ class Branch(BankService_pb2_grpc.BankServiceServicer):
             self.Create_StubList()
         for stub in self.stubList:
             response = stub.MsgDelivery(
-                BankService_pb2.MsgDeliveryRequest(
+                BankService2_pb2.MsgRequest(
                     s_id=request_id,
                     d_id=-1,
-                    interface=BankService_pb2.WITHDRAW,
+                    interface=BankService2_pb2.WITHDRAW,
                     amount=amount
                 )
             )
@@ -128,7 +134,7 @@ class Branch(BankService_pb2_grpc.BankServiceServicer):
             utils.log_data(
                 logger=logger,
                 message=f'Send request to Branch : {request_id} from Branch : {self.id}.'
-                f'Operation {utils.INTERFACE_MAP[BankService_pb2.WITHDRAW]} returns {utils.RESPONSE_STATUS[response.responseStatus]}'
+                f'Operation {utils.INTERFACE_MAP[BankService2_pb2.WITHDRAW]} returns {utils.RESPONSE_STATUS[response.responseStatus]}'
                 f'money {response.amount}'
             )
 
@@ -143,7 +149,7 @@ class Branch(BankService_pb2_grpc.BankServiceServicer):
                     logger=logger,
                     message=f'Initializing branch to branch stub at {process_id}'
                 )
-                self.stubList.append(BankService_pb2_grpc.BankServiceStub(
+                self.stubList.append(BankService2_pb2_grpc.BankService2Stub(
                     grpc.insecure_channel(process_id)
                 ))
 
@@ -155,7 +161,7 @@ def Create_Branch(branch : Branch, processID: str):
         options=(('grpc.so_reuseport', 1),))
     
     branch.address = processID
-    BankService_pb2_grpc.add_BankServiceServicer_to_server(branch, server)
+    BankService2_pb2_grpc.add_BankService2Servicer_to_server(branch, server)
 
     server.add_insecure_port(processID)
     server.start()
