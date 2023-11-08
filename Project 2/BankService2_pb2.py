@@ -16,16 +16,16 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='BankService2.proto',
-  package='',
+  package='BankService2',
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x12\x42\x61nkService2.proto\"f\n\nMsgRequest\x12\x0c\n\x04s_id\x18\x01 \x01(\x03\x12\x0c\n\x04\x64_id\x18\x02 \x01(\x03\x12\x1d\n\tinterface\x18\x03 \x01(\x0e\x32\n.Interface\x12\x0e\n\x06\x61mount\x18\x04 \x01(\x02\x12\r\n\x05\x63lock\x18\x05 \x01(\x03\"S\n\x0bMsgResponse\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x19\n\x08response\x18\x02 \x01(\x0e\x32\x07.Status\x12\x0e\n\x06\x61mount\x18\x03 \x01(\x02\x12\r\n\x05\x63lock\x18\x04 \x01(\x03*1\n\tInterface\x12\t\n\x05QUERY\x10\x00\x12\x0b\n\x07\x44\x45POSIT\x10\x01\x12\x0c\n\x08WITHDRAW\x10\x02*-\n\x06Status\x12\x0b\n\x07SUCCESS\x10\x00\x12\x0b\n\x07\x46\x41ILURE\x10\x01\x12\t\n\x05\x45RROR\x10\x02\x32>\n\x0c\x42\x61nkService2\x12.\n\x0fMessageDelivery\x12\x0b.MsgRequest\x1a\x0c.MsgResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x12\x42\x61nkService2.proto\x12\x0c\x42\x61nkService2\"s\n\nMsgRequest\x12\x0c\n\x04s_id\x18\x01 \x01(\x03\x12\x0c\n\x04\x64_id\x18\x02 \x01(\x03\x12*\n\tinterface\x18\x03 \x01(\x0e\x32\x17.BankService2.Interface\x12\x0e\n\x06\x61mount\x18\x04 \x01(\x02\x12\r\n\x05\x63lock\x18\x05 \x01(\x03\"f\n\x0bMsgResponse\x12\n\n\x02id\x18\x01 \x01(\x03\x12,\n\x0eresponseStatus\x18\x02 \x01(\x0e\x32\x14.BankService2.Status\x12\x0e\n\x06\x61mount\x18\x03 \x01(\x02\x12\r\n\x05\x63lock\x18\x04 \x01(\x03*1\n\tInterface\x12\t\n\x05QUERY\x10\x00\x12\x0b\n\x07\x44\x45POSIT\x10\x01\x12\x0c\n\x08WITHDRAW\x10\x02*-\n\x06Status\x12\x0b\n\x07SUCCESS\x10\x00\x12\x0b\n\x07\x46\x41ILURE\x10\x01\x12\t\n\x05\x45RROR\x10\x02\x32T\n\x0c\x42\x61nkService2\x12\x44\n\x0bMsgDelivery\x12\x18.BankService2.MsgRequest\x1a\x19.BankService2.MsgResponse\"\x00\x62\x06proto3'
 )
 
 _INTERFACE = _descriptor.EnumDescriptor(
   name='Interface',
-  full_name='Interface',
+  full_name='BankService2.Interface',
   filename=None,
   file=DESCRIPTOR,
   create_key=_descriptor._internal_create_key,
@@ -48,15 +48,15 @@ _INTERFACE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=211,
-  serialized_end=260,
+  serialized_start=257,
+  serialized_end=306,
 )
 _sym_db.RegisterEnumDescriptor(_INTERFACE)
 
 Interface = enum_type_wrapper.EnumTypeWrapper(_INTERFACE)
 _STATUS = _descriptor.EnumDescriptor(
   name='Status',
-  full_name='Status',
+  full_name='BankService2.Status',
   filename=None,
   file=DESCRIPTOR,
   create_key=_descriptor._internal_create_key,
@@ -79,8 +79,8 @@ _STATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=262,
-  serialized_end=307,
+  serialized_start=308,
+  serialized_end=353,
 )
 _sym_db.RegisterEnumDescriptor(_STATUS)
 
@@ -96,42 +96,42 @@ ERROR = 2
 
 _MSGREQUEST = _descriptor.Descriptor(
   name='MsgRequest',
-  full_name='MsgRequest',
+  full_name='BankService2.MsgRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='s_id', full_name='MsgRequest.s_id', index=0,
+      name='s_id', full_name='BankService2.MsgRequest.s_id', index=0,
       number=1, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='d_id', full_name='MsgRequest.d_id', index=1,
+      name='d_id', full_name='BankService2.MsgRequest.d_id', index=1,
       number=2, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='interface', full_name='MsgRequest.interface', index=2,
+      name='interface', full_name='BankService2.MsgRequest.interface', index=2,
       number=3, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='amount', full_name='MsgRequest.amount', index=3,
+      name='amount', full_name='BankService2.MsgRequest.amount', index=3,
       number=4, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='clock', full_name='MsgRequest.clock', index=4,
+      name='clock', full_name='BankService2.MsgRequest.clock', index=4,
       number=5, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -149,42 +149,42 @@ _MSGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=22,
-  serialized_end=124,
+  serialized_start=36,
+  serialized_end=151,
 )
 
 
 _MSGRESPONSE = _descriptor.Descriptor(
   name='MsgResponse',
-  full_name='MsgResponse',
+  full_name='BankService2.MsgResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='MsgResponse.id', index=0,
+      name='id', full_name='BankService2.MsgResponse.id', index=0,
       number=1, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='response', full_name='MsgResponse.response', index=1,
+      name='responseStatus', full_name='BankService2.MsgResponse.responseStatus', index=1,
       number=2, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='amount', full_name='MsgResponse.amount', index=2,
+      name='amount', full_name='BankService2.MsgResponse.amount', index=2,
       number=3, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='clock', full_name='MsgResponse.clock', index=3,
+      name='clock', full_name='BankService2.MsgResponse.clock', index=3,
       number=4, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -202,12 +202,12 @@ _MSGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=126,
-  serialized_end=209,
+  serialized_start=153,
+  serialized_end=255,
 )
 
 _MSGREQUEST.fields_by_name['interface'].enum_type = _INTERFACE
-_MSGRESPONSE.fields_by_name['response'].enum_type = _STATUS
+_MSGRESPONSE.fields_by_name['responseStatus'].enum_type = _STATUS
 DESCRIPTOR.message_types_by_name['MsgRequest'] = _MSGREQUEST
 DESCRIPTOR.message_types_by_name['MsgResponse'] = _MSGRESPONSE
 DESCRIPTOR.enum_types_by_name['Interface'] = _INTERFACE
@@ -217,14 +217,14 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 MsgRequest = _reflection.GeneratedProtocolMessageType('MsgRequest', (_message.Message,), {
   'DESCRIPTOR' : _MSGREQUEST,
   '__module__' : 'BankService2_pb2'
-  # @@protoc_insertion_point(class_scope:MsgRequest)
+  # @@protoc_insertion_point(class_scope:BankService2.MsgRequest)
   })
 _sym_db.RegisterMessage(MsgRequest)
 
 MsgResponse = _reflection.GeneratedProtocolMessageType('MsgResponse', (_message.Message,), {
   'DESCRIPTOR' : _MSGRESPONSE,
   '__module__' : 'BankService2_pb2'
-  # @@protoc_insertion_point(class_scope:MsgResponse)
+  # @@protoc_insertion_point(class_scope:BankService2.MsgResponse)
   })
 _sym_db.RegisterMessage(MsgResponse)
 
@@ -232,17 +232,17 @@ _sym_db.RegisterMessage(MsgResponse)
 
 _BANKSERVICE2 = _descriptor.ServiceDescriptor(
   name='BankService2',
-  full_name='BankService2',
+  full_name='BankService2.BankService2',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=309,
-  serialized_end=371,
+  serialized_start=355,
+  serialized_end=439,
   methods=[
   _descriptor.MethodDescriptor(
-    name='MessageDelivery',
-    full_name='BankService2.MessageDelivery',
+    name='MsgDelivery',
+    full_name='BankService2.BankService2.MsgDelivery',
     index=0,
     containing_service=None,
     input_type=_MSGREQUEST,

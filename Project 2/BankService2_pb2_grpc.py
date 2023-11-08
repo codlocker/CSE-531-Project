@@ -14,8 +14,8 @@ class BankService2Stub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.MessageDelivery = channel.unary_unary(
-                '/BankService2/MessageDelivery',
+        self.MsgDelivery = channel.unary_unary(
+                '/BankService2.BankService2/MsgDelivery',
                 request_serializer=BankService2__pb2.MsgRequest.SerializeToString,
                 response_deserializer=BankService2__pb2.MsgResponse.FromString,
                 )
@@ -24,7 +24,7 @@ class BankService2Stub(object):
 class BankService2Servicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def MessageDelivery(self, request, context):
+    def MsgDelivery(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -33,14 +33,14 @@ class BankService2Servicer(object):
 
 def add_BankService2Servicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'MessageDelivery': grpc.unary_unary_rpc_method_handler(
-                    servicer.MessageDelivery,
+            'MsgDelivery': grpc.unary_unary_rpc_method_handler(
+                    servicer.MsgDelivery,
                     request_deserializer=BankService2__pb2.MsgRequest.FromString,
                     response_serializer=BankService2__pb2.MsgResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'BankService2', rpc_method_handlers)
+            'BankService2.BankService2', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -49,7 +49,7 @@ class BankService2(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def MessageDelivery(request,
+    def MsgDelivery(request,
             target,
             options=(),
             channel_credentials=None,
@@ -59,7 +59,7 @@ class BankService2(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/BankService2/MessageDelivery',
+        return grpc.experimental.unary_unary(request, target, '/BankService2.BankService2/MsgDelivery',
             BankService2__pb2.MsgRequest.SerializeToString,
             BankService2__pb2.MsgResponse.FromString,
             options, channel_credentials,

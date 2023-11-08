@@ -81,7 +81,7 @@ class Branch(BankService2_pb2_grpc.BankService2Servicer):
             self.Propagate_Withdraw(
                 request_id=request.d_id,
                 amount=request.amount,
-
+                request_clock=request.clock
             )
 
         return response

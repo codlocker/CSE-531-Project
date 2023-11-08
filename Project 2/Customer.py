@@ -12,7 +12,7 @@ cust_logger = config_logger("Customer")
 # The customer class for customer process
 class Customer:
     THREADS=2
-    def __init__(self, id, events, output_file: str, customer_events: dict):
+    def __init__(self, id, events, output_file, customer_events):
         # unique ID of the Customer
         self.id = id
         # events from the input
@@ -45,7 +45,7 @@ class Customer:
     def executeEvents(self):
         record = {'id': self.id, 'recv': []}
         for event in self.events:
-            request_id = event['id']
+            request_id = event['customer-request-id']
             request_op = INTERFACE[event['interface'].upper()]
             request_val = 0 if 'money' not in event else event['money']
 
@@ -54,8 +54,8 @@ class Customer:
                 interface=event['interface'],
                 clock=self.clock
             )
-            
-            response = self.stub.MessageDelivery(
+
+            response = self.stub.MsgDelivery(
                 BankService2_pb2.MsgRequest(
                     s_id=request_id,
                     d_id=self.id,
