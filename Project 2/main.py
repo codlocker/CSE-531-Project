@@ -73,10 +73,12 @@ def log_output(branch_logger, cust_logger):
 
     
     with open('customer.log', 'w+') as f:
-        json.dumps(coutput, f)
+        dump_str = json.dumps(coutput)
+        print(dump_str, file=f)
 
     with open('branch.log', 'w+') as f:
-        json.dumps(boutput, f)
+        dump_str = json.dumps(boutput)
+        print(dump_str, file=f)
     
 if __name__ == "__main__":
     argumentList = sys.argv[1:]
