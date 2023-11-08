@@ -178,6 +178,7 @@ if __name__ == "__main__":
         target=log_output,
         args=(branch_logger, customer_logger))
     
+    log_worker.start()
     workers.append(log_worker)
 
 
