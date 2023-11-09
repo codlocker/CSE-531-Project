@@ -39,7 +39,7 @@ class Customer:
                 )
             )
 
-            self.clock = max(self.clock, response.clock) + 1
+            self.clock += 1
 
     def output(self):
         return self.cust_events

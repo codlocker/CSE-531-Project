@@ -9,6 +9,10 @@ import BankService2_pb2_grpc
 from Branch import Branch
 from Customer import Customer
 
+OUTPUT_FILE = 'output.json'
+BRANCH_OUTPUT_FILE = 'branch_output.json'
+CUSTOMER_OUTPUT_FILE = 'customer_output.json'
+
 def run_branch(branch: Branch):
     branch.create_stubs()
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
@@ -19,14 +23,38 @@ def run_branch(branch: Branch):
     print(f'Starting server for branch {branch.id} at 127.0.0.1:{port}')
     server.start()
 
+    # Maintain pid's for writing to output file.
+    sleep(0.5 * branch.id)
+    res = json.load(open(BRANCH_OUTPUT_FILE))
+    res.append(
+        {
+            'id': branch.id, 
+            'type': 'branch', 
+            'events': branch.output()
+        })
+    
+    final_res = json.dumps(res, indent=4)
+    with open(BRANCH_OUTPUT_FILE, 'w') as f:
+        f.write(final_res)
+    
     server.wait_for_termination()
     
 def run_customer(customer: Customer):
     customer.create_stub()
     customer.execute_events()
 
-    # sleep(0.5 * customer.id)
-    # print(customer.output())
+    sleep(0.5 * customer.id)
+    res = json.load(open(CUSTOMER_OUTPUT_FILE))
+    res.append(
+        {
+            'id': customer.id, 
+            'type': 'customer', 
+            'events': customer.output()
+        })
+    
+    final_res = json.dumps(res, indent=4)
+    with open(CUSTOMER_OUTPUT_FILE, 'w') as f:
+        f.write(final_res)
 
 def create_process(processes):
     customers = []
@@ -68,12 +96,17 @@ def create_process(processes):
 
 if __name__ == "__main__":
     input_file = sys.argv[1] if len(sys.argv) > 1 else 'input.json'
-    output_file = 'output.json'
 
     try:
         input = json.load(open(input_file))
 
-        with open(output_file, 'w') as f:
+        with open(OUTPUT_FILE, 'w') as f:
+            f.write('[]')
+
+        with open(BRANCH_OUTPUT_FILE, 'w') as f:
+            f.write('[]')
+
+        with open(CUSTOMER_OUTPUT_FILE, 'w') as f:
             f.write('[]')
 
         create_process(input)
