@@ -1,8 +1,9 @@
 from concurrent import futures
-
+from multiprocessing import Manager
 import grpc
 import BankService2_pb2
 import BankService2_pb2_grpc
+
 
 class Branch(BankService2_pb2_grpc.BankService2Servicer):
     def __init__(self, id, balance, branches) -> None:
@@ -10,7 +11,7 @@ class Branch(BankService2_pb2_grpc.BankService2Servicer):
         self.balance = balance
         self.branches = branches
         self.stubList = list()
-        self.events = list()
+        self.events = Manager.list()
         self.clock = 1
 
     def create_stubs(self):
