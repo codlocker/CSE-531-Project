@@ -64,7 +64,7 @@ class Branch(BankService2_pb2_grpc.BankService2Servicer):
     
     def propagate_transaction(self, request):
         for bId, stub in self.stubList:
-            self.branch_request_sent(request)
+            self.branch_request_sent(bId, request)
 
             response = stub.MsgPropagation(
                 BankService2_pb2.MsgRequest(
@@ -82,7 +82,7 @@ class Branch(BankService2_pb2_grpc.BankService2Servicer):
 
     def cust_request_recv(self, request):
         self.clock = max(self.clock, request.clock) + 1
-        print(f'Clock : {self.clock} Branch {request.id} receives Customer Request ID: {request.customer_request_id}')
+        print(f'Clock : {self.clock} Branch {self.id} receives Customer Request ID: {request.customer_request_id}')
         self.events.append(
             {
                 'customer-request-id': request.customer_request_id,
@@ -106,16 +106,16 @@ class Branch(BankService2_pb2_grpc.BankService2Servicer):
             }
         )
 
-    def branch_request_sent(self, request):
+    def branch_request_sent(self, bId, request):
         self.clock += 1
-        print(f'Clock : {self.clock} Branch {self.id} sends Branch propagate request for ID: {request.customer_request_id} to {request.id}')
+        print(f'Clock : {self.clock} Branch {self.id} sends Branch propagate request for ID: {request.customer_request_id} to {bId}')
         self.events.append(
             {
                 'customer-request-id': request.customer_request_id,
                 'type': 'branch',
                 'logical_clock': self.clock,
                 'interface': f'propagate_{request.interface}',
-                'comment': f'event_sent to branch {request.id}'
+                'comment': f'event_sent to branch {bId}'
             }
         )
     #####################################
