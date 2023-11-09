@@ -121,5 +121,4 @@ class Branch(BankService2_pb2_grpc.BankService2Servicer):
     # Return the events stored by branch#
     #####################################
     def output(self):
-        print(self.events)
-        return self.events
+        return self.events.copy()
