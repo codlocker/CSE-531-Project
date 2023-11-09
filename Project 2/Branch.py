@@ -11,7 +11,7 @@ class Branch(BankService2_pb2_grpc.BankService2Servicer):
         self.balance = balance
         self.branches = branches
         self.stubList = list()
-        self.events = Manager.list()
+        self.events = Manager().list()
         self.clock = 1
 
     def create_stubs(self):
@@ -122,4 +122,4 @@ class Branch(BankService2_pb2_grpc.BankService2Servicer):
     # Return the events stored by branch#
     #####################################
     def output(self):
-        return self.events
+        return list(self.events)
