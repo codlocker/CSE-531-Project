@@ -18,18 +18,18 @@
                 "comment": "event_sent to branch 2"
             },
             {
-                "customer-request-id": 3,
-                "type": "branch",
-                "logical_clock": 5,
-                "interface": "propagate_deposit",
-                "comment": "event_recv from branch 2"
-            },
-            {
                 "customer-request-id": 5,
                 "type": "branch",
                 "logical_clock": 5,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 3"
+            },
+            {
+                "customer-request-id": 3,
+                "type": "branch",
+                "logical_clock": 5,
+                "interface": "propagate_deposit",
+                "comment": "event_recv from branch 2"
             },
             {
                 "customer-request-id": 1,
@@ -191,18 +191,18 @@
                 "comment": "event_recv from customer 3"
             },
             {
-                "customer-request-id": 6,
-                "type": "branch",
-                "logical_clock": 9,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 1"
-            },
-            {
                 "customer-request-id": 1,
                 "type": "branch",
                 "logical_clock": 7,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 1"
+            },
+            {
+                "customer-request-id": 6,
+                "type": "branch",
+                "logical_clock": 9,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 1"
             },
             {
                 "customer-request-id": 6,
@@ -214,14 +214,14 @@
             {
                 "customer-request-id": 4,
                 "type": "branch",
-                "logical_clock": 15,
+                "logical_clock": 13,
                 "interface": "propagate_withdraw",
                 "comment": "event_recv from branch 2"
             },
             {
                 "customer-request-id": 2,
                 "type": "branch",
-                "logical_clock": 16,
+                "logical_clock": 15,
                 "interface": "propagate_withdraw",
                 "comment": "event_recv from branch 1"
             }

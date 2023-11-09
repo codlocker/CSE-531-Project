@@ -115,6 +115,7 @@ if __name__ == "__main__":
             f.write('[]')
 
         create_process(input)
+        # create_output_file()
         
     except Exception as e:
         print(e)

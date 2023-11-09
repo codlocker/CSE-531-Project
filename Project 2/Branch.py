@@ -107,7 +107,7 @@ class Branch(BankService2_pb2_grpc.BankService2Servicer):
         )
 
     def branch_request_sent(self, bId, request):
-        self.clock += 1
+        self.clock = max(self.clock, request.clock) + 1
         print(f'Clock : {self.clock} Branch {self.id} sends Branch propagate request for ID: {request.customer_request_id} to {bId}')
         self.events.append(
             {
