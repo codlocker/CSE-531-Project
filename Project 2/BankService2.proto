@@ -3,31 +3,20 @@ package BankService2;
 
 service BankService2 {
     rpc MsgDelivery (MsgRequest) returns (MsgResponse) {}
-}
-
-enum Interface {
-    QUERY = 0;
-    DEPOSIT = 1;
-    WITHDRAW = 2;
-}
-
-enum Status {
-    SUCCESS = 0;
-    FAILURE = 1;
-    ERROR = 2;
+    rpc MsgPropagation(MsgRequest) returns (MsgResponse) {}
 }
 
 message MsgRequest {
     int64 s_id = 1;
     int64 d_id = 2;
-    Interface interface = 3;
+    string interface = 3;
     float amount = 4;
     int64 clock = 5;
 }
 
 message MsgResponse {
     int64 id = 1;
-    Status responseStatus = 2;
+    string responseStatus = 2;
     float amount = 3;
     int64 clock = 4;
 }
