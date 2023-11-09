@@ -22,20 +22,6 @@ def run_branch(branch: Branch):
     server.add_insecure_port(f"127.0.0.1:{port}")
     print(f'Starting server for branch {branch.id} at 127.0.0.1:{port}')
     server.start()
-
-    # Maintain pid's for writing to output file.
-    sleep(0.5 * branch.id)
-    res = json.load(open(BRANCH_OUTPUT_FILE))
-    res.append(
-        {
-            'id': branch.id, 
-            'type': 'branch', 
-            'events': branch.output()
-        })
-    
-    final_res = json.dumps(res, indent=4)
-    with open(BRANCH_OUTPUT_FILE, 'w') as f:
-        f.write(final_res)
     
     server.wait_for_termination()
     
@@ -93,6 +79,28 @@ def create_process(processes):
         customer_processes.append(customer_process)
         customer_process.start()
 
+    for cp in customer_processes:
+        cp.join()
+
+    sleep(1)
+
+    for branch in branches:
+        # Maintain pid's for writing to output file.
+        sleep(0.5 * branch.id)
+        res = json.load(open(BRANCH_OUTPUT_FILE))
+        res.append(
+            {
+                'id': branch.id, 
+                'type': 'branch', 
+                'events': branch.output()
+            })
+        
+        final_res = json.dumps(res, indent=4)
+        with open(BRANCH_OUTPUT_FILE, 'w') as f:
+            f.write(final_res)
+    
+    for bp in branch_processes:
+        bp.terminate()
 
 if __name__ == "__main__":
     input_file = sys.argv[1] if len(sys.argv) > 1 else 'input.json'
