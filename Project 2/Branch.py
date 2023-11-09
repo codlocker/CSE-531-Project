@@ -106,7 +106,7 @@ class Branch(BankService2_pb2_grpc.BankService2Servicer):
         )
 
     def branch_request_sent(self, request):
-        self.clock = max(self.clock, request.clock) + 1
+        self.clock += 1
         print(f'Clock : {self.clock} Branch {self.id} sends Branch propagate request for ID: {request.customer_request_id} to {request.id}')
         self.events.append(
             {
@@ -117,6 +117,8 @@ class Branch(BankService2_pb2_grpc.BankService2Servicer):
                 'comment': f'event_sent to branch {request.id}'
             }
         )
-
+    #####################################
+    # Return the events stored by branch#
+    #####################################
     def output(self):
         return self.events
