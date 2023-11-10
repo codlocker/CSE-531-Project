@@ -86,7 +86,6 @@ class Branch(BankService2_pb2_grpc.BankService2Servicer):
         self.events.append(
             {
                 'customer-request-id': request.customer_request_id,
-                'type': 'customer',
                 'logical_clock': self.clock,
                 'interface': request.interface,
                 'comment': f'event_recv from customer {request.id}'
@@ -99,7 +98,6 @@ class Branch(BankService2_pb2_grpc.BankService2Servicer):
         self.events.append(
             {
                 'customer-request-id': request.customer_request_id,
-                'type': 'branch',
                 'logical_clock': self.clock,
                 'interface': f'propagate_{request.interface}',
                 'comment': f'event_recv from branch {request.id}'
@@ -107,12 +105,11 @@ class Branch(BankService2_pb2_grpc.BankService2Servicer):
         )
 
     def branch_request_sent(self, bId, request):
-        self.clock = max(self.clock, request.clock) + 1
+        self.clock += 1
         print(f'Clock : {self.clock} Branch {self.id} sends Branch propagate request for ID: {request.customer_request_id} to {bId}')
         self.events.append(
             {
                 'customer-request-id': request.customer_request_id,
-                'type': 'branch',
                 'logical_clock': self.clock,
                 'interface': f'propagate_{request.interface}',
                 'comment': f'event_sent to branch {bId}'

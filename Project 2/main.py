@@ -12,6 +12,7 @@ from Customer import Customer
 OUTPUT_FILE = 'output.json'
 BRANCH_OUTPUT_FILE = 'branch_output.json'
 CUSTOMER_OUTPUT_FILE = 'customer_output.json'
+final_output = []
 
 def run_branch(branch: Branch):
     branch.create_stubs()
@@ -36,6 +37,11 @@ def run_customer(customer: Customer):
             'type': 'customer', 
             'events': customer.output()
         })
+    
+    # for event in customer.output():
+    #    event['id'] = customer.id
+    #    event['type'] = 'customer'
+    #    final_output.append(event)
     
     final_res = json.dumps(res, indent=4)
     with open(CUSTOMER_OUTPUT_FILE, 'w') as f:
@@ -68,8 +74,9 @@ def create_process(processes):
         branch_process = multiprocessing.Process(target=run_branch, args=(branch,))
         branch_processes.append(branch_process)
         branch_process.start()
+        sleep(0.1)
 
-    print(f'Sleep for {0.25} seconds after branch server creation')
+    print(f'Sleep for {2} seconds after branch server creation')
     sleep(2)
 
     # Create Customer processes
@@ -77,6 +84,7 @@ def create_process(processes):
         customer_process = multiprocessing.Process(target=run_customer, args=(customer,))
         customer_processes.append(customer_process)
         customer_process.start()
+        sleep(0.1)
 
     for cp in customer_processes:
         cp.join()
@@ -95,9 +103,20 @@ def create_process(processes):
                 'events': branch.output()
             })
 
+        # for event in branch.output():
+        #    event['id'] = branch.id
+        #    event['type'] = 'branch'
+        #     final_output.append(event)
         final_res = json.dumps(res, indent=4)
         with open(BRANCH_OUTPUT_FILE, 'w') as f:
             f.write(final_res)
+
+
+def create_output_file():
+    sorted(final_output, key=lambda event : (event['customer-request-id'], event['logical_clock']))
+    final_res = json.dumps(final_output, indent=4)
+    with open(OUTPUT_FILE, 'w') as f:
+        f.write(final_res)
 
 if __name__ == "__main__":
     input_file = sys.argv[1] if len(sys.argv) > 1 else 'input.json'
@@ -115,6 +134,8 @@ if __name__ == "__main__":
             f.write('[]')
 
         create_process(input)
+
+        # Final output
         # create_output_file()
         
     except Exception as e:

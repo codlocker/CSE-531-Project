@@ -21,7 +21,7 @@ class Customer:
     def execute_events(self):
         for event in self.events:
             print(f'Clock : {self.clock} Customer {self.id} sending event {event["customer-request-id"]} to branch {self.id} => Event: {event["interface"]}'
-                   + f'Money: {event["money"]} ')
+                   + f' Money: {event["money"]} ')
             self.cust_events.append({
                 'customer-request-id': event['customer-request-id'],
                 'logical_clock': self.clock,
