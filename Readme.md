@@ -51,7 +51,11 @@
   
 ### RESULTS
 
-- On running the [input.json](./Project%201/input.json), the output is as follows : [output.json](./Project%201/output.json)
-- On running the [input1.json](./Project%201/input1.json), the output is as follows : [output1.json](./Project%201/output1.json)
+- Running the checker_scipt for customers we get
+![Customer](Project-2-customer-checker.png)
 
-![Project1-result](Project1-Result.png)
+- Running the checker_scipt for branch we get
+![Branch](Project-2-branch-checker.png)
+
+- Running the checker_scipt for overall we get
+![Overall](Project-2-overall-checker.png)
