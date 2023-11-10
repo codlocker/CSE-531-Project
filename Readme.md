@@ -37,6 +37,11 @@
 2. Run the following the command the build the proto files: ```python -m grpc_tools.protoc -I . .\BankService2.proto  --python_out=. --grpc_python_out=.```
 3. The entry point of the code is through main.py and add input.json or any name as the input file 
    - Example command : python main.py input.json
+
+4. To run the checker scripts. Note there are 3 files customer_output.json, branch_output.json and output.json
+   - python checker_part_1.py customer_output.json
+   - python checker_part_2.py branch_output.json
+   - python checker_part_3.py output.json
   
 ### RESULTS
 
