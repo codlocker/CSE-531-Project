@@ -39,9 +39,9 @@
    - Example command : python main.py input.json
 
 4. To run the checker scripts. Note there are 3 files customer_output.json, branch_output.json and output.json
-   - python checker_part_1.py customer_output.json
-   - python checker_part_2.py branch_output.json
-   - python checker_part_3.py output.json
+   - ```python checker_part_1.py customer_output.json```
+   - ```python checker_part_2.py branch_output.json```
+   - ```python checker_part_3.py output.json```
   
 ### RESULTS
 
