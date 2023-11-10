@@ -1,9 +1,8 @@
 from concurrent import futures
-from multiprocessing import Manager
+from multiprocessing import Manager, Lock
 import grpc
 import BankService2_pb2
 import BankService2_pb2_grpc
-
 
 class Branch(BankService2_pb2_grpc.BankService2Servicer):
     def __init__(self, id, balance, branches) -> None:
@@ -13,6 +12,7 @@ class Branch(BankService2_pb2_grpc.BankService2Servicer):
         self.stubList = list()
         self.events = Manager().list()
         self.clock = 1
+        self.lock = Lock()
 
     def create_stubs(self):
         for bId in self.branches:
@@ -68,7 +68,8 @@ class Branch(BankService2_pb2_grpc.BankService2Servicer):
 
             response = stub.MsgPropagation(
                 BankService2_pb2.MsgRequest(
-                    id=request.id,
+                    # id=request.id
+                    id=bId,
                     customer_request_id=request.customer_request_id,
                     interface=request.interface,
                     amount=request.amount,
@@ -81,40 +82,52 @@ class Branch(BankService2_pb2_grpc.BankService2Servicer):
     ##########################################
 
     def cust_request_recv(self, request):
-        self.clock = max(self.clock, request.clock) + 1
-        print(f'Clock : {self.clock} Branch {self.id} receives Customer Request ID: {request.customer_request_id}')
-        self.events.append(
-            {
-                'customer-request-id': request.customer_request_id,
-                'logical_clock': self.clock,
-                'interface': request.interface,
-                'comment': f'event_recv from customer {request.id}'
-            }
-        )
+        self.lock.acquire()
+        try:
+            self.clock = max(self.clock, request.clock) + 1
+            print(f'Clock : {self.clock} Branch {self.id} receives Customer Request ID: {request.customer_request_id}')
+            self.events.append(
+                {
+                    'customer-request-id': request.customer_request_id,
+                    'logical_clock': self.clock,
+                    'interface': request.interface,
+                    'comment': f'event_recv from customer {request.id}'
+                }
+            )
+        finally:
+            self.lock.release()
 
     def branch_request_recv(self, request):
-        self.clock = max(self.clock, request.clock) + 1
-        print(f'Clock : {self.clock} Branch {self.id} receives Branch propagate request for ID: {request.customer_request_id}')
-        self.events.append(
-            {
-                'customer-request-id': request.customer_request_id,
-                'logical_clock': self.clock,
-                'interface': f'propagate_{request.interface}',
-                'comment': f'event_recv from branch {request.id}'
-            }
-        )
+        self.lock.acquire()
+        try:
+            self.clock = max(self.clock, request.clock) + 1
+            print(f'Clock : {self.clock} Branch {self.id} receives Branch propagate request for ID: {request.customer_request_id}')
+            self.events.append(
+                {
+                    'customer-request-id': request.customer_request_id,
+                    'logical_clock': self.clock,
+                    'interface': f'propagate_{request.interface}',
+                    'comment': f'event_recv from branch {request.id}'
+                }
+            )
+        finally:
+            self.lock.release()
 
     def branch_request_sent(self, bId, request):
-        self.clock += 1
-        print(f'Clock : {self.clock} Branch {self.id} sends Branch propagate request for ID: {request.customer_request_id} to {bId}')
-        self.events.append(
-            {
-                'customer-request-id': request.customer_request_id,
-                'logical_clock': self.clock,
-                'interface': f'propagate_{request.interface}',
-                'comment': f'event_sent to branch {bId}'
-            }
-        )
+        self.lock.acquire()
+        try:
+            self.clock += 1
+            print(f'Clock : {self.clock} Branch {self.id} sends Branch propagate request for ID: {request.customer_request_id} to {bId}')
+            self.events.append(
+                {
+                    'customer-request-id': request.customer_request_id,
+                    'logical_clock': self.clock,
+                    'interface': f'propagate_{request.interface}',
+                    'comment': f'event_sent to branch {bId}'
+                }
+            )
+        finally:
+            self.lock.release()
     #####################################
     # Return the events stored by branch#
     #####################################

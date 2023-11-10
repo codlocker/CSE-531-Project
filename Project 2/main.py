@@ -74,22 +74,21 @@ def create_process(processes):
         branch_process = multiprocessing.Process(target=run_branch, args=(branch,))
         branch_processes.append(branch_process)
         branch_process.start()
-        sleep(0.1)
 
-    print(f'Sleep for {2} seconds after branch server creation')
-    sleep(2)
+    # print(f'Sleep for {2} seconds after branch server creation')
+    # sleep(2)
 
     # Create Customer processes
     for customer in customers:
         customer_process = multiprocessing.Process(target=run_customer, args=(customer,))
         customer_processes.append(customer_process)
         customer_process.start()
-        sleep(0.1)
+        # sleep(0.1)
 
     for cp in customer_processes:
         cp.join()
 
-    sleep(1)
+    # sleep(1)
     
     for bp in branch_processes:
         bp.terminate()
