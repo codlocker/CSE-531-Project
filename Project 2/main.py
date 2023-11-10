@@ -108,8 +108,8 @@ def create_process(processes):
 
 
 def create_output_file():
-    sorted(final_output, key=lambda event : (event['customer-request-id'], event['logical_clock']))
-    final_res = json.dumps(final_output, indent=4)
+    sorted_output = sorted(final_output, key=lambda event : (event['customer-request-id'], event['logical_clock']))
+    final_res = json.dumps(sorted_output, indent=4)
     with open(OUTPUT_FILE, 'w') as f:
         f.write(final_res)
 
