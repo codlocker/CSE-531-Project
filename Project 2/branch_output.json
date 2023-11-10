@@ -16,40 +16,40 @@
                 "comment": "event_sent to branch 2"
             },
             {
-                "customer-request-id": 7,
+                "customer-request-id": 3,
                 "logical_clock": 4,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 1"
             },
             {
-                "customer-request-id": 5,
+                "customer-request-id": 13,
                 "logical_clock": 5,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 1"
             },
             {
-                "customer-request-id": 3,
+                "customer-request-id": 5,
                 "logical_clock": 6,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 1"
             },
             {
-                "customer-request-id": 11,
+                "customer-request-id": 7,
                 "logical_clock": 7,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 1"
             },
             {
-                "customer-request-id": 17,
+                "customer-request-id": 9,
                 "logical_clock": 8,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 1"
             },
             {
-                "customer-request-id": 1,
+                "customer-request-id": 17,
                 "logical_clock": 9,
                 "interface": "propagate_deposit",
-                "comment": "event_sent to branch 3"
+                "comment": "event_recv from branch 1"
             },
             {
                 "customer-request-id": 19,
@@ -58,19 +58,19 @@
                 "comment": "event_recv from branch 1"
             },
             {
-                "customer-request-id": 13,
+                "customer-request-id": 11,
                 "logical_clock": 11,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 1"
             },
             {
-                "customer-request-id": 15,
+                "customer-request-id": 1,
                 "logical_clock": 12,
                 "interface": "propagate_deposit",
-                "comment": "event_recv from branch 1"
+                "comment": "event_sent to branch 3"
             },
             {
-                "customer-request-id": 9,
+                "customer-request-id": 15,
                 "logical_clock": 13,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 1"
@@ -118,116 +118,116 @@
                 "comment": "event_sent to branch 10"
             },
             {
-                "customer-request-id": 20,
+                "customer-request-id": 4,
+                "logical_clock": 23,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 1"
+            },
+            {
+                "customer-request-id": 6,
                 "logical_clock": 30,
                 "interface": "propagate_withdraw",
                 "comment": "event_recv from branch 1"
             },
             {
-                "customer-request-id": 18,
-                "logical_clock": 43,
+                "customer-request-id": 10,
+                "logical_clock": 36,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 1"
+            },
+            {
+                "customer-request-id": 14,
+                "logical_clock": 39,
                 "interface": "propagate_withdraw",
                 "comment": "event_recv from branch 1"
             },
             {
                 "customer-request-id": 8,
-                "logical_clock": 44,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 1"
-            },
-            {
-                "customer-request-id": 4,
-                "logical_clock": 45,
+                "logical_clock": 42,
                 "interface": "propagate_withdraw",
                 "comment": "event_recv from branch 1"
             },
             {
                 "customer-request-id": 2,
-                "logical_clock": 46,
+                "logical_clock": 43,
                 "interface": "withdraw",
                 "comment": "event_recv from customer 1"
             },
             {
                 "customer-request-id": 2,
-                "logical_clock": 47,
+                "logical_clock": 44,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 2"
             },
             {
                 "customer-request-id": 2,
-                "logical_clock": 48,
+                "logical_clock": 45,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 3"
             },
             {
-                "customer-request-id": 12,
-                "logical_clock": 49,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 1"
-            },
-            {
-                "customer-request-id": 2,
-                "logical_clock": 50,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 4"
-            },
-            {
-                "customer-request-id": 6,
+                "customer-request-id": 16,
                 "logical_clock": 52,
                 "interface": "propagate_withdraw",
                 "comment": "event_recv from branch 1"
             },
             {
-                "customer-request-id": 16,
+                "customer-request-id": 2,
                 "logical_clock": 53,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 4"
+            },
+            {
+                "customer-request-id": 20,
+                "logical_clock": 58,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 1"
+            },
+            {
+                "customer-request-id": 12,
+                "logical_clock": 59,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 1"
+            },
+            {
+                "customer-request-id": 18,
+                "logical_clock": 60,
                 "interface": "propagate_withdraw",
                 "comment": "event_recv from branch 1"
             },
             {
                 "customer-request-id": 2,
-                "logical_clock": 54,
+                "logical_clock": 61,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 5"
             },
             {
-                "customer-request-id": 14,
-                "logical_clock": 55,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 1"
-            },
-            {
-                "customer-request-id": 10,
-                "logical_clock": 56,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 1"
-            },
-            {
                 "customer-request-id": 2,
-                "logical_clock": 57,
+                "logical_clock": 62,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 6"
             },
             {
                 "customer-request-id": 2,
-                "logical_clock": 58,
+                "logical_clock": 63,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 7"
             },
             {
                 "customer-request-id": 2,
-                "logical_clock": 59,
+                "logical_clock": 64,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 8"
             },
             {
                 "customer-request-id": 2,
-                "logical_clock": 60,
+                "logical_clock": 65,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 9"
             },
             {
                 "customer-request-id": 2,
-                "logical_clock": 61,
+                "logical_clock": 66,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 10"
             }
@@ -262,55 +262,55 @@
                 "comment": "event_recv from branch 2"
             },
             {
-                "customer-request-id": 5,
+                "customer-request-id": 3,
                 "logical_clock": 6,
                 "interface": "propagate_deposit",
-                "comment": "event_recv from branch 2"
+                "comment": "event_sent to branch 4"
             },
             {
-                "customer-request-id": 11,
+                "customer-request-id": 13,
                 "logical_clock": 7,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 2"
             },
             {
-                "customer-request-id": 7,
+                "customer-request-id": 5,
                 "logical_clock": 8,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 2"
             },
             {
-                "customer-request-id": 17,
+                "customer-request-id": 7,
                 "logical_clock": 9,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 2"
             },
             {
-                "customer-request-id": 3,
-                "logical_clock": 10,
-                "interface": "propagate_deposit",
-                "comment": "event_sent to branch 4"
-            },
-            {
                 "customer-request-id": 9,
-                "logical_clock": 11,
+                "logical_clock": 10,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 2"
             },
             {
                 "customer-request-id": 19,
+                "logical_clock": 11,
+                "interface": "propagate_deposit",
+                "comment": "event_recv from branch 2"
+            },
+            {
+                "customer-request-id": 17,
                 "logical_clock": 12,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 2"
             },
             {
-                "customer-request-id": 13,
+                "customer-request-id": 15,
                 "logical_clock": 13,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 2"
             },
             {
-                "customer-request-id": 15,
+                "customer-request-id": 11,
                 "logical_clock": 14,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 2"
@@ -364,106 +364,106 @@
                 "comment": "event_sent to branch 1"
             },
             {
-                "customer-request-id": 20,
-                "logical_clock": 32,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 2"
-            },
-            {
-                "customer-request-id": 18,
-                "logical_clock": 44,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 2"
-            },
-            {
-                "customer-request-id": 8,
-                "logical_clock": 45,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 2"
-            },
-            {
                 "customer-request-id": 4,
-                "logical_clock": 46,
+                "logical_clock": 23,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 3"
             },
             {
-                "customer-request-id": 2,
-                "logical_clock": 48,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 2"
-            },
-            {
                 "customer-request-id": 4,
-                "logical_clock": 49,
+                "logical_clock": 24,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 4"
             },
             {
                 "customer-request-id": 4,
-                "logical_clock": 50,
+                "logical_clock": 25,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 5"
             },
             {
-                "customer-request-id": 12,
-                "logical_clock": 51,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 2"
-            },
-            {
                 "customer-request-id": 4,
-                "logical_clock": 52,
+                "logical_clock": 26,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 6"
             },
             {
                 "customer-request-id": 6,
-                "logical_clock": 54,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 2"
-            },
-            {
-                "customer-request-id": 16,
-                "logical_clock": 55,
+                "logical_clock": 31,
                 "interface": "propagate_withdraw",
                 "comment": "event_recv from branch 2"
             },
             {
                 "customer-request-id": 4,
-                "logical_clock": 56,
+                "logical_clock": 32,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 7"
             },
             {
-                "customer-request-id": 14,
-                "logical_clock": 57,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 2"
-            },
-            {
-                "customer-request-id": 10,
-                "logical_clock": 58,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 2"
-            },
-            {
                 "customer-request-id": 4,
-                "logical_clock": 59,
+                "logical_clock": 33,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 8"
             },
             {
                 "customer-request-id": 4,
-                "logical_clock": 60,
+                "logical_clock": 34,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 9"
             },
             {
                 "customer-request-id": 4,
-                "logical_clock": 61,
+                "logical_clock": 35,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 10"
+            },
+            {
+                "customer-request-id": 10,
+                "logical_clock": 37,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 2"
+            },
+            {
+                "customer-request-id": 14,
+                "logical_clock": 40,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 2"
+            },
+            {
+                "customer-request-id": 8,
+                "logical_clock": 44,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 2"
+            },
+            {
+                "customer-request-id": 2,
+                "logical_clock": 45,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 2"
+            },
+            {
+                "customer-request-id": 16,
+                "logical_clock": 53,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 2"
+            },
+            {
+                "customer-request-id": 20,
+                "logical_clock": 59,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 2"
+            },
+            {
+                "customer-request-id": 12,
+                "logical_clock": 60,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 2"
+            },
+            {
+                "customer-request-id": 18,
+                "logical_clock": 61,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 2"
             }
         ]
     },
@@ -490,55 +490,49 @@
                 "comment": "event_sent to branch 2"
             },
             {
-                "customer-request-id": 1,
-                "logical_clock": 10,
-                "interface": "propagate_deposit",
-                "comment": "event_recv from branch 3"
-            },
-            {
                 "customer-request-id": 3,
-                "logical_clock": 11,
+                "logical_clock": 5,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 3"
             },
             {
                 "customer-request-id": 5,
-                "logical_clock": 12,
+                "logical_clock": 6,
                 "interface": "propagate_deposit",
                 "comment": "event_sent to branch 4"
             },
             {
-                "customer-request-id": 11,
+                "customer-request-id": 1,
                 "logical_clock": 13,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 3"
             },
             {
-                "customer-request-id": 9,
+                "customer-request-id": 13,
                 "logical_clock": 14,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 3"
             },
             {
-                "customer-request-id": 7,
+                "customer-request-id": 5,
                 "logical_clock": 15,
                 "interface": "propagate_deposit",
-                "comment": "event_recv from branch 3"
+                "comment": "event_sent to branch 5"
             },
             {
-                "customer-request-id": 17,
+                "customer-request-id": 7,
                 "logical_clock": 16,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 3"
             },
             {
-                "customer-request-id": 5,
+                "customer-request-id": 9,
                 "logical_clock": 17,
                 "interface": "propagate_deposit",
-                "comment": "event_sent to branch 5"
+                "comment": "event_recv from branch 3"
             },
             {
-                "customer-request-id": 15,
+                "customer-request-id": 17,
                 "logical_clock": 18,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 3"
@@ -550,154 +544,160 @@
                 "comment": "event_recv from branch 3"
             },
             {
-                "customer-request-id": 13,
+                "customer-request-id": 15,
                 "logical_clock": 20,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 3"
             },
             {
-                "customer-request-id": 5,
+                "customer-request-id": 11,
                 "logical_clock": 21,
                 "interface": "propagate_deposit",
-                "comment": "event_sent to branch 6"
+                "comment": "event_recv from branch 3"
             },
             {
                 "customer-request-id": 5,
                 "logical_clock": 22,
                 "interface": "propagate_deposit",
-                "comment": "event_sent to branch 7"
+                "comment": "event_sent to branch 6"
             },
             {
                 "customer-request-id": 5,
                 "logical_clock": 23,
                 "interface": "propagate_deposit",
-                "comment": "event_sent to branch 8"
+                "comment": "event_sent to branch 7"
             },
             {
                 "customer-request-id": 5,
                 "logical_clock": 24,
                 "interface": "propagate_deposit",
-                "comment": "event_sent to branch 9"
+                "comment": "event_sent to branch 8"
             },
             {
                 "customer-request-id": 5,
                 "logical_clock": 25,
                 "interface": "propagate_deposit",
+                "comment": "event_sent to branch 9"
+            },
+            {
+                "customer-request-id": 5,
+                "logical_clock": 26,
+                "interface": "propagate_deposit",
                 "comment": "event_sent to branch 10"
             },
             {
-                "customer-request-id": 18,
-                "logical_clock": 45,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 3"
-            },
-            {
                 "customer-request-id": 4,
-                "logical_clock": 47,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 3"
-            },
-            {
-                "customer-request-id": 8,
-                "logical_clock": 48,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 3"
-            },
-            {
-                "customer-request-id": 2,
-                "logical_clock": 49,
+                "logical_clock": 27,
                 "interface": "propagate_withdraw",
                 "comment": "event_recv from branch 3"
             },
             {
                 "customer-request-id": 6,
-                "logical_clock": 50,
+                "logical_clock": 28,
                 "interface": "withdraw",
                 "comment": "event_recv from customer 3"
             },
             {
                 "customer-request-id": 6,
-                "logical_clock": 51,
+                "logical_clock": 29,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 1"
             },
             {
-                "customer-request-id": 20,
-                "logical_clock": 52,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 3"
-            },
-            {
                 "customer-request-id": 6,
-                "logical_clock": 53,
+                "logical_clock": 30,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 2"
             },
             {
-                "customer-request-id": 12,
-                "logical_clock": 54,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 3"
-            },
-            {
                 "customer-request-id": 6,
-                "logical_clock": 55,
+                "logical_clock": 31,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 4"
             },
             {
                 "customer-request-id": 6,
-                "logical_clock": 56,
+                "logical_clock": 32,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 5"
             },
             {
-                "customer-request-id": 16,
-                "logical_clock": 57,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 3"
-            },
-            {
                 "customer-request-id": 6,
-                "logical_clock": 58,
+                "logical_clock": 33,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 6"
             },
             {
-                "customer-request-id": 14,
-                "logical_clock": 59,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 3"
-            },
-            {
-                "customer-request-id": 10,
-                "logical_clock": 62,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 3"
-            },
-            {
                 "customer-request-id": 6,
-                "logical_clock": 63,
+                "logical_clock": 34,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 7"
             },
             {
                 "customer-request-id": 6,
-                "logical_clock": 64,
+                "logical_clock": 35,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 8"
             },
             {
                 "customer-request-id": 6,
-                "logical_clock": 65,
+                "logical_clock": 36,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 9"
             },
             {
                 "customer-request-id": 6,
-                "logical_clock": 66,
+                "logical_clock": 37,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 10"
+            },
+            {
+                "customer-request-id": 10,
+                "logical_clock": 38,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 3"
+            },
+            {
+                "customer-request-id": 14,
+                "logical_clock": 41,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 3"
+            },
+            {
+                "customer-request-id": 8,
+                "logical_clock": 45,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 3"
+            },
+            {
+                "customer-request-id": 2,
+                "logical_clock": 46,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 3"
+            },
+            {
+                "customer-request-id": 16,
+                "logical_clock": 54,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 3"
+            },
+            {
+                "customer-request-id": 20,
+                "logical_clock": 60,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 3"
+            },
+            {
+                "customer-request-id": 12,
+                "logical_clock": 61,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 3"
+            },
+            {
+                "customer-request-id": 18,
+                "logical_clock": 62,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 3"
             }
         ]
     },
@@ -731,19 +731,19 @@
             },
             {
                 "customer-request-id": 3,
-                "logical_clock": 11,
+                "logical_clock": 7,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 4"
             },
             {
                 "customer-request-id": 5,
-                "logical_clock": 13,
+                "logical_clock": 8,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 4"
             },
             {
                 "customer-request-id": 7,
-                "logical_clock": 14,
+                "logical_clock": 9,
                 "interface": "propagate_deposit",
                 "comment": "event_sent to branch 5"
             },
@@ -754,7 +754,7 @@
                 "comment": "event_recv from branch 4"
             },
             {
-                "customer-request-id": 11,
+                "customer-request-id": 13,
                 "logical_clock": 16,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 4"
@@ -766,25 +766,25 @@
                 "comment": "event_recv from branch 4"
             },
             {
-                "customer-request-id": 13,
-                "logical_clock": 18,
-                "interface": "propagate_deposit",
-                "comment": "event_recv from branch 4"
-            },
-            {
                 "customer-request-id": 7,
-                "logical_clock": 19,
+                "logical_clock": 18,
                 "interface": "propagate_deposit",
                 "comment": "event_sent to branch 6"
             },
             {
                 "customer-request-id": 19,
-                "logical_clock": 20,
+                "logical_clock": 19,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 4"
             },
             {
                 "customer-request-id": 17,
+                "logical_clock": 20,
+                "interface": "propagate_deposit",
+                "comment": "event_recv from branch 4"
+            },
+            {
+                "customer-request-id": 11,
                 "logical_clock": 21,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 4"
@@ -820,116 +820,116 @@
                 "comment": "event_sent to branch 10"
             },
             {
-                "customer-request-id": 8,
-                "logical_clock": 27,
-                "interface": "withdraw",
-                "comment": "event_recv from customer 4"
-            },
-            {
-                "customer-request-id": 8,
-                "logical_clock": 28,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 1"
-            },
-            {
-                "customer-request-id": 8,
-                "logical_clock": 29,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 2"
-            },
-            {
-                "customer-request-id": 8,
-                "logical_clock": 30,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 3"
-            },
-            {
-                "customer-request-id": 8,
-                "logical_clock": 31,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 5"
-            },
-            {
                 "customer-request-id": 4,
-                "logical_clock": 50,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 4"
-            },
-            {
-                "customer-request-id": 18,
-                "logical_clock": 51,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 4"
-            },
-            {
-                "customer-request-id": 8,
-                "logical_clock": 52,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 6"
-            },
-            {
-                "customer-request-id": 2,
-                "logical_clock": 53,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 4"
-            },
-            {
-                "customer-request-id": 8,
-                "logical_clock": 54,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 7"
-            },
-            {
-                "customer-request-id": 20,
-                "logical_clock": 55,
+                "logical_clock": 27,
                 "interface": "propagate_withdraw",
                 "comment": "event_recv from branch 4"
             },
             {
                 "customer-request-id": 6,
-                "logical_clock": 56,
+                "logical_clock": 32,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 4"
+            },
+            {
+                "customer-request-id": 10,
+                "logical_clock": 39,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 4"
+            },
+            {
+                "customer-request-id": 8,
+                "logical_clock": 40,
+                "interface": "withdraw",
+                "comment": "event_recv from customer 4"
+            },
+            {
+                "customer-request-id": 8,
+                "logical_clock": 41,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 1"
+            },
+            {
+                "customer-request-id": 14,
+                "logical_clock": 42,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 4"
+            },
+            {
+                "customer-request-id": 8,
+                "logical_clock": 43,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 2"
+            },
+            {
+                "customer-request-id": 8,
+                "logical_clock": 44,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 3"
+            },
+            {
+                "customer-request-id": 8,
+                "logical_clock": 45,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 5"
+            },
+            {
+                "customer-request-id": 8,
+                "logical_clock": 46,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 6"
+            },
+            {
+                "customer-request-id": 8,
+                "logical_clock": 47,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 7"
+            },
+            {
+                "customer-request-id": 8,
+                "logical_clock": 48,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 8"
+            },
+            {
+                "customer-request-id": 8,
+                "logical_clock": 49,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 9"
+            },
+            {
+                "customer-request-id": 8,
+                "logical_clock": 50,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 10"
+            },
+            {
+                "customer-request-id": 2,
+                "logical_clock": 54,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 4"
+            },
+            {
+                "customer-request-id": 16,
+                "logical_clock": 55,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 4"
+            },
+            {
+                "customer-request-id": 20,
+                "logical_clock": 61,
                 "interface": "propagate_withdraw",
                 "comment": "event_recv from branch 4"
             },
             {
                 "customer-request-id": 12,
-                "logical_clock": 57,
+                "logical_clock": 65,
                 "interface": "propagate_withdraw",
                 "comment": "event_recv from branch 4"
             },
             {
-                "customer-request-id": 8,
-                "logical_clock": 58,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 8"
-            },
-            {
-                "customer-request-id": 16,
-                "logical_clock": 59,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 4"
-            },
-            {
-                "customer-request-id": 8,
-                "logical_clock": 60,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 9"
-            },
-            {
-                "customer-request-id": 14,
-                "logical_clock": 62,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 4"
-            },
-            {
-                "customer-request-id": 8,
-                "logical_clock": 63,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 10"
-            },
-            {
-                "customer-request-id": 10,
-                "logical_clock": 64,
+                "customer-request-id": 18,
+                "logical_clock": 66,
                 "interface": "propagate_withdraw",
                 "comment": "event_recv from branch 4"
             }
@@ -970,43 +970,37 @@
                 "comment": "event_sent to branch 4"
             },
             {
-                "customer-request-id": 7,
-                "logical_clock": 15,
-                "interface": "propagate_deposit",
-                "comment": "event_recv from branch 5"
-            },
-            {
-                "customer-request-id": 9,
-                "logical_clock": 16,
-                "interface": "propagate_deposit",
-                "comment": "event_sent to branch 6"
-            },
-            {
                 "customer-request-id": 3,
-                "logical_clock": 17,
+                "logical_clock": 16,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 5"
             },
             {
                 "customer-request-id": 5,
+                "logical_clock": 17,
+                "interface": "propagate_deposit",
+                "comment": "event_recv from branch 5"
+            },
+            {
+                "customer-request-id": 7,
                 "logical_clock": 18,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 5"
             },
             {
-                "customer-request-id": 1,
+                "customer-request-id": 9,
                 "logical_clock": 19,
                 "interface": "propagate_deposit",
-                "comment": "event_recv from branch 5"
+                "comment": "event_sent to branch 6"
             },
             {
-                "customer-request-id": 11,
+                "customer-request-id": 1,
                 "logical_clock": 20,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 5"
             },
             {
-                "customer-request-id": 15,
+                "customer-request-id": 13,
                 "logical_clock": 21,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 5"
@@ -1018,112 +1012,136 @@
                 "comment": "event_sent to branch 7"
             },
             {
-                "customer-request-id": 17,
+                "customer-request-id": 19,
                 "logical_clock": 23,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 5"
             },
             {
-                "customer-request-id": 19,
+                "customer-request-id": 17,
                 "logical_clock": 24,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 5"
             },
             {
-                "customer-request-id": 13,
+                "customer-request-id": 15,
                 "logical_clock": 25,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 5"
             },
             {
-                "customer-request-id": 9,
+                "customer-request-id": 11,
                 "logical_clock": 26,
                 "interface": "propagate_deposit",
-                "comment": "event_sent to branch 8"
+                "comment": "event_recv from branch 5"
             },
             {
                 "customer-request-id": 9,
                 "logical_clock": 27,
                 "interface": "propagate_deposit",
-                "comment": "event_sent to branch 9"
+                "comment": "event_sent to branch 8"
             },
             {
                 "customer-request-id": 9,
                 "logical_clock": 28,
                 "interface": "propagate_deposit",
+                "comment": "event_sent to branch 9"
+            },
+            {
+                "customer-request-id": 9,
+                "logical_clock": 29,
+                "interface": "propagate_deposit",
                 "comment": "event_sent to branch 10"
             },
             {
-                "customer-request-id": 8,
-                "logical_clock": 32,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 5"
-            },
-            {
                 "customer-request-id": 4,
-                "logical_clock": 51,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 5"
-            },
-            {
-                "customer-request-id": 18,
-                "logical_clock": 52,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 5"
-            },
-            {
-                "customer-request-id": 10,
-                "logical_clock": 53,
-                "interface": "withdraw",
-                "comment": "event_recv from customer 5"
-            },
-            {
-                "customer-request-id": 10,
-                "logical_clock": 54,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 1"
-            },
-            {
-                "customer-request-id": 2,
-                "logical_clock": 55,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 5"
-            },
-            {
-                "customer-request-id": 10,
-                "logical_clock": 56,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 2"
-            },
-            {
-                "customer-request-id": 20,
-                "logical_clock": 57,
+                "logical_clock": 30,
                 "interface": "propagate_withdraw",
                 "comment": "event_recv from branch 5"
             },
             {
                 "customer-request-id": 6,
-                "logical_clock": 58,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 5"
-            },
-            {
-                "customer-request-id": 12,
-                "logical_clock": 60,
+                "logical_clock": 33,
                 "interface": "propagate_withdraw",
                 "comment": "event_recv from branch 5"
             },
             {
                 "customer-request-id": 10,
-                "logical_clock": 61,
+                "logical_clock": 34,
+                "interface": "withdraw",
+                "comment": "event_recv from customer 5"
+            },
+            {
+                "customer-request-id": 10,
+                "logical_clock": 35,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 1"
+            },
+            {
+                "customer-request-id": 10,
+                "logical_clock": 36,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 2"
+            },
+            {
+                "customer-request-id": 10,
+                "logical_clock": 37,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 3"
             },
             {
                 "customer-request-id": 10,
-                "logical_clock": 62,
+                "logical_clock": 38,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 4"
+            },
+            {
+                "customer-request-id": 10,
+                "logical_clock": 39,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 6"
+            },
+            {
+                "customer-request-id": 10,
+                "logical_clock": 40,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 7"
+            },
+            {
+                "customer-request-id": 10,
+                "logical_clock": 41,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 8"
+            },
+            {
+                "customer-request-id": 14,
+                "logical_clock": 44,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 5"
+            },
+            {
+                "customer-request-id": 10,
+                "logical_clock": 45,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 9"
+            },
+            {
+                "customer-request-id": 10,
+                "logical_clock": 46,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 10"
+            },
+            {
+                "customer-request-id": 8,
+                "logical_clock": 47,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 5"
+            },
+            {
+                "customer-request-id": 2,
+                "logical_clock": 62,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 5"
             },
             {
                 "customer-request-id": 16,
@@ -1132,40 +1150,22 @@
                 "comment": "event_recv from branch 5"
             },
             {
-                "customer-request-id": 10,
+                "customer-request-id": 20,
                 "logical_clock": 64,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 6"
-            },
-            {
-                "customer-request-id": 14,
-                "logical_clock": 66,
                 "interface": "propagate_withdraw",
                 "comment": "event_recv from branch 5"
             },
             {
-                "customer-request-id": 10,
+                "customer-request-id": 12,
                 "logical_clock": 67,
                 "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 7"
+                "comment": "event_recv from branch 5"
             },
             {
-                "customer-request-id": 10,
+                "customer-request-id": 18,
                 "logical_clock": 68,
                 "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 8"
-            },
-            {
-                "customer-request-id": 10,
-                "logical_clock": 69,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 9"
-            },
-            {
-                "customer-request-id": 10,
-                "logical_clock": 70,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 10"
+                "comment": "event_recv from branch 5"
             }
         ]
     },
@@ -1210,55 +1210,43 @@
                 "comment": "event_sent to branch 5"
             },
             {
-                "customer-request-id": 7,
-                "logical_clock": 20,
-                "interface": "propagate_deposit",
-                "comment": "event_recv from branch 6"
-            },
-            {
                 "customer-request-id": 3,
-                "logical_clock": 21,
-                "interface": "propagate_deposit",
-                "comment": "event_recv from branch 6"
-            },
-            {
-                "customer-request-id": 1,
-                "logical_clock": 22,
-                "interface": "propagate_deposit",
-                "comment": "event_recv from branch 6"
-            },
-            {
-                "customer-request-id": 9,
-                "logical_clock": 23,
+                "logical_clock": 17,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 6"
             },
             {
                 "customer-request-id": 5,
+                "logical_clock": 23,
+                "interface": "propagate_deposit",
+                "comment": "event_recv from branch 6"
+            },
+            {
+                "customer-request-id": 9,
                 "logical_clock": 24,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 6"
             },
             {
-                "customer-request-id": 11,
+                "customer-request-id": 7,
                 "logical_clock": 25,
                 "interface": "propagate_deposit",
-                "comment": "event_sent to branch 7"
+                "comment": "event_recv from branch 6"
             },
             {
-                "customer-request-id": 15,
+                "customer-request-id": 1,
                 "logical_clock": 26,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 6"
             },
             {
-                "customer-request-id": 13,
+                "customer-request-id": 11,
                 "logical_clock": 27,
                 "interface": "propagate_deposit",
-                "comment": "event_recv from branch 6"
+                "comment": "event_sent to branch 7"
             },
             {
-                "customer-request-id": 17,
+                "customer-request-id": 13,
                 "logical_clock": 28,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 6"
@@ -1270,106 +1258,100 @@
                 "comment": "event_recv from branch 6"
             },
             {
-                "customer-request-id": 11,
+                "customer-request-id": 17,
                 "logical_clock": 30,
                 "interface": "propagate_deposit",
-                "comment": "event_sent to branch 8"
+                "comment": "event_recv from branch 6"
             },
             {
-                "customer-request-id": 11,
+                "customer-request-id": 15,
                 "logical_clock": 31,
                 "interface": "propagate_deposit",
-                "comment": "event_sent to branch 9"
+                "comment": "event_recv from branch 6"
             },
             {
                 "customer-request-id": 11,
                 "logical_clock": 32,
                 "interface": "propagate_deposit",
+                "comment": "event_sent to branch 8"
+            },
+            {
+                "customer-request-id": 11,
+                "logical_clock": 33,
+                "interface": "propagate_deposit",
+                "comment": "event_sent to branch 9"
+            },
+            {
+                "customer-request-id": 11,
+                "logical_clock": 34,
+                "interface": "propagate_deposit",
                 "comment": "event_sent to branch 10"
             },
             {
+                "customer-request-id": 4,
+                "logical_clock": 35,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 6"
+            },
+            {
+                "customer-request-id": 6,
+                "logical_clock": 36,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 6"
+            },
+            {
+                "customer-request-id": 10,
+                "logical_clock": 40,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 6"
+            },
+            {
+                "customer-request-id": 14,
+                "logical_clock": 45,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 6"
+            },
+            {
+                "customer-request-id": 8,
+                "logical_clock": 47,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 6"
+            },
+            {
                 "customer-request-id": 12,
-                "logical_clock": 33,
+                "logical_clock": 48,
                 "interface": "withdraw",
                 "comment": "event_recv from customer 6"
             },
             {
                 "customer-request-id": 12,
-                "logical_clock": 34,
+                "logical_clock": 49,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 1"
             },
             {
                 "customer-request-id": 12,
-                "logical_clock": 35,
+                "logical_clock": 50,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 2"
             },
             {
                 "customer-request-id": 12,
-                "logical_clock": 36,
+                "logical_clock": 51,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 3"
             },
             {
-                "customer-request-id": 8,
-                "logical_clock": 53,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 6"
-            },
-            {
-                "customer-request-id": 4,
-                "logical_clock": 54,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 6"
-            },
-            {
-                "customer-request-id": 12,
-                "logical_clock": 55,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 4"
-            },
-            {
-                "customer-request-id": 18,
-                "logical_clock": 56,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 6"
-            },
-            {
                 "customer-request-id": 2,
-                "logical_clock": 58,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 6"
-            },
-            {
-                "customer-request-id": 12,
-                "logical_clock": 59,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 5"
-            },
-            {
-                "customer-request-id": 20,
-                "logical_clock": 60,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 6"
-            },
-            {
-                "customer-request-id": 12,
-                "logical_clock": 61,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 7"
-            },
-            {
-                "customer-request-id": 6,
-                "logical_clock": 62,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 6"
-            },
-            {
-                "customer-request-id": 12,
                 "logical_clock": 63,
                 "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 8"
+                "comment": "event_recv from branch 6"
+            },
+            {
+                "customer-request-id": 12,
+                "logical_clock": 64,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 4"
             },
             {
                 "customer-request-id": 16,
@@ -1381,10 +1363,10 @@
                 "customer-request-id": 12,
                 "logical_clock": 66,
                 "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 9"
+                "comment": "event_sent to branch 5"
             },
             {
-                "customer-request-id": 10,
+                "customer-request-id": 20,
                 "logical_clock": 67,
                 "interface": "propagate_withdraw",
                 "comment": "event_recv from branch 6"
@@ -1393,13 +1375,31 @@
                 "customer-request-id": 12,
                 "logical_clock": 68,
                 "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 10"
+                "comment": "event_sent to branch 7"
             },
             {
-                "customer-request-id": 14,
+                "customer-request-id": 18,
                 "logical_clock": 69,
                 "interface": "propagate_withdraw",
                 "comment": "event_recv from branch 6"
+            },
+            {
+                "customer-request-id": 12,
+                "logical_clock": 70,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 8"
+            },
+            {
+                "customer-request-id": 12,
+                "logical_clock": 71,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 9"
+            },
+            {
+                "customer-request-id": 12,
+                "logical_clock": 72,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 10"
             }
         ]
     },
@@ -1450,7 +1450,13 @@
                 "comment": "event_sent to branch 6"
             },
             {
-                "customer-request-id": 7,
+                "customer-request-id": 3,
+                "logical_clock": 18,
+                "interface": "propagate_deposit",
+                "comment": "event_recv from branch 7"
+            },
+            {
+                "customer-request-id": 5,
                 "logical_clock": 24,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 7"
@@ -1462,13 +1468,13 @@
                 "comment": "event_recv from branch 7"
             },
             {
-                "customer-request-id": 3,
+                "customer-request-id": 13,
                 "logical_clock": 26,
                 "interface": "propagate_deposit",
-                "comment": "event_recv from branch 7"
+                "comment": "event_sent to branch 8"
             },
             {
-                "customer-request-id": 1,
+                "customer-request-id": 7,
                 "logical_clock": 27,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 7"
@@ -1480,7 +1486,7 @@
                 "comment": "event_recv from branch 7"
             },
             {
-                "customer-request-id": 5,
+                "customer-request-id": 1,
                 "logical_clock": 29,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 7"
@@ -1489,16 +1495,16 @@
                 "customer-request-id": 13,
                 "logical_clock": 30,
                 "interface": "propagate_deposit",
-                "comment": "event_sent to branch 8"
+                "comment": "event_sent to branch 9"
             },
             {
-                "customer-request-id": 17,
+                "customer-request-id": 19,
                 "logical_clock": 31,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 7"
             },
             {
-                "customer-request-id": 19,
+                "customer-request-id": 17,
                 "logical_clock": 32,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 7"
@@ -1513,127 +1519,121 @@
                 "customer-request-id": 13,
                 "logical_clock": 34,
                 "interface": "propagate_deposit",
-                "comment": "event_sent to branch 9"
-            },
-            {
-                "customer-request-id": 13,
-                "logical_clock": 35,
-                "interface": "propagate_deposit",
                 "comment": "event_sent to branch 10"
             },
             {
-                "customer-request-id": 14,
-                "logical_clock": 36,
-                "interface": "withdraw",
-                "comment": "event_recv from customer 7"
-            },
-            {
-                "customer-request-id": 14,
-                "logical_clock": 37,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 1"
-            },
-            {
-                "customer-request-id": 14,
-                "logical_clock": 38,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 2"
-            },
-            {
-                "customer-request-id": 8,
-                "logical_clock": 55,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 7"
-            },
-            {
                 "customer-request-id": 4,
-                "logical_clock": 57,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 7"
-            },
-            {
-                "customer-request-id": 14,
-                "logical_clock": 58,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 3"
-            },
-            {
-                "customer-request-id": 18,
-                "logical_clock": 59,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 7"
-            },
-            {
-                "customer-request-id": 2,
-                "logical_clock": 60,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 7"
-            },
-            {
-                "customer-request-id": 14,
-                "logical_clock": 61,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 4"
-            },
-            {
-                "customer-request-id": 12,
-                "logical_clock": 62,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 7"
-            },
-            {
-                "customer-request-id": 20,
-                "logical_clock": 63,
+                "logical_clock": 35,
                 "interface": "propagate_withdraw",
                 "comment": "event_recv from branch 7"
             },
             {
                 "customer-request-id": 6,
-                "logical_clock": 64,
+                "logical_clock": 36,
                 "interface": "propagate_withdraw",
                 "comment": "event_recv from branch 7"
             },
             {
                 "customer-request-id": 14,
-                "logical_clock": 65,
+                "logical_clock": 37,
+                "interface": "withdraw",
+                "comment": "event_recv from customer 7"
+            },
+            {
+                "customer-request-id": 14,
+                "logical_clock": 38,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 1"
+            },
+            {
+                "customer-request-id": 14,
+                "logical_clock": 39,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 2"
+            },
+            {
+                "customer-request-id": 14,
+                "logical_clock": 40,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 3"
+            },
+            {
+                "customer-request-id": 14,
+                "logical_clock": 41,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 4"
+            },
+            {
+                "customer-request-id": 10,
+                "logical_clock": 42,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 7"
+            },
+            {
+                "customer-request-id": 14,
+                "logical_clock": 43,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 5"
             },
             {
                 "customer-request-id": 14,
-                "logical_clock": 66,
+                "logical_clock": 44,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 6"
             },
             {
-                "customer-request-id": 16,
-                "logical_clock": 69,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 7"
-            },
-            {
-                "customer-request-id": 10,
-                "logical_clock": 70,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 7"
-            },
-            {
                 "customer-request-id": 14,
-                "logical_clock": 71,
+                "logical_clock": 45,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 8"
             },
             {
                 "customer-request-id": 14,
-                "logical_clock": 72,
+                "logical_clock": 46,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 9"
             },
             {
                 "customer-request-id": 14,
-                "logical_clock": 73,
+                "logical_clock": 47,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 10"
+            },
+            {
+                "customer-request-id": 8,
+                "logical_clock": 48,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 7"
+            },
+            {
+                "customer-request-id": 2,
+                "logical_clock": 64,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 7"
+            },
+            {
+                "customer-request-id": 16,
+                "logical_clock": 65,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 7"
+            },
+            {
+                "customer-request-id": 20,
+                "logical_clock": 66,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 7"
+            },
+            {
+                "customer-request-id": 12,
+                "logical_clock": 69,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 7"
+            },
+            {
+                "customer-request-id": 18,
+                "logical_clock": 70,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 7"
             }
         ]
     },
@@ -1690,49 +1690,55 @@
                 "comment": "event_sent to branch 7"
             },
             {
-                "customer-request-id": 9,
-                "logical_clock": 27,
-                "interface": "propagate_deposit",
-                "comment": "event_recv from branch 8"
-            },
-            {
-                "customer-request-id": 7,
-                "logical_clock": 28,
-                "interface": "propagate_deposit",
-                "comment": "event_recv from branch 8"
-            },
-            {
-                "customer-request-id": 15,
-                "logical_clock": 29,
-                "interface": "propagate_deposit",
-                "comment": "event_sent to branch 9"
-            },
-            {
-                "customer-request-id": 13,
-                "logical_clock": 31,
-                "interface": "propagate_deposit",
-                "comment": "event_recv from branch 8"
-            },
-            {
-                "customer-request-id": 1,
-                "logical_clock": 32,
-                "interface": "propagate_deposit",
-                "comment": "event_recv from branch 8"
-            },
-            {
                 "customer-request-id": 3,
-                "logical_clock": 33,
+                "logical_clock": 19,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 8"
             },
             {
                 "customer-request-id": 5,
-                "logical_clock": 34,
+                "logical_clock": 25,
+                "interface": "propagate_deposit",
+                "comment": "event_recv from branch 8"
+            },
+            {
+                "customer-request-id": 9,
+                "logical_clock": 28,
+                "interface": "propagate_deposit",
+                "comment": "event_recv from branch 8"
+            },
+            {
+                "customer-request-id": 13,
+                "logical_clock": 29,
+                "interface": "propagate_deposit",
+                "comment": "event_recv from branch 8"
+            },
+            {
+                "customer-request-id": 7,
+                "logical_clock": 30,
+                "interface": "propagate_deposit",
+                "comment": "event_recv from branch 8"
+            },
+            {
+                "customer-request-id": 1,
+                "logical_clock": 31,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 8"
             },
             {
                 "customer-request-id": 11,
+                "logical_clock": 33,
+                "interface": "propagate_deposit",
+                "comment": "event_recv from branch 8"
+            },
+            {
+                "customer-request-id": 15,
+                "logical_clock": 34,
+                "interface": "propagate_deposit",
+                "comment": "event_sent to branch 9"
+            },
+            {
+                "customer-request-id": 17,
                 "logical_clock": 35,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 8"
@@ -1744,128 +1750,122 @@
                 "comment": "event_recv from branch 8"
             },
             {
-                "customer-request-id": 17,
-                "logical_clock": 37,
-                "interface": "propagate_deposit",
-                "comment": "event_recv from branch 8"
-            },
-            {
                 "customer-request-id": 15,
-                "logical_clock": 38,
+                "logical_clock": 37,
                 "interface": "propagate_deposit",
                 "comment": "event_sent to branch 10"
             },
             {
-                "customer-request-id": 16,
-                "logical_clock": 39,
-                "interface": "withdraw",
-                "comment": "event_recv from customer 8"
-            },
-            {
-                "customer-request-id": 16,
-                "logical_clock": 40,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 1"
-            },
-            {
-                "customer-request-id": 16,
-                "logical_clock": 41,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 2"
-            },
-            {
-                "customer-request-id": 16,
-                "logical_clock": 42,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 3"
-            },
-            {
-                "customer-request-id": 16,
-                "logical_clock": 43,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 4"
-            },
-            {
-                "customer-request-id": 8,
-                "logical_clock": 59,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 8"
-            },
-            {
                 "customer-request-id": 4,
-                "logical_clock": 60,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 8"
-            },
-            {
-                "customer-request-id": 16,
-                "logical_clock": 61,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 5"
-            },
-            {
-                "customer-request-id": 18,
-                "logical_clock": 62,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 8"
-            },
-            {
-                "customer-request-id": 2,
-                "logical_clock": 63,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 8"
-            },
-            {
-                "customer-request-id": 16,
-                "logical_clock": 64,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 6"
-            },
-            {
-                "customer-request-id": 12,
-                "logical_clock": 65,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 8"
-            },
-            {
-                "customer-request-id": 20,
-                "logical_clock": 66,
+                "logical_clock": 38,
                 "interface": "propagate_withdraw",
                 "comment": "event_recv from branch 8"
             },
             {
                 "customer-request-id": 6,
-                "logical_clock": 67,
+                "logical_clock": 39,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 8"
+            },
+            {
+                "customer-request-id": 10,
+                "logical_clock": 42,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 8"
+            },
+            {
+                "customer-request-id": 14,
+                "logical_clock": 46,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 8"
+            },
+            {
+                "customer-request-id": 8,
+                "logical_clock": 49,
                 "interface": "propagate_withdraw",
                 "comment": "event_recv from branch 8"
             },
             {
                 "customer-request-id": 16,
-                "logical_clock": 68,
+                "logical_clock": 50,
+                "interface": "withdraw",
+                "comment": "event_recv from customer 8"
+            },
+            {
+                "customer-request-id": 16,
+                "logical_clock": 51,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 1"
+            },
+            {
+                "customer-request-id": 16,
+                "logical_clock": 52,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 2"
+            },
+            {
+                "customer-request-id": 16,
+                "logical_clock": 53,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 3"
+            },
+            {
+                "customer-request-id": 16,
+                "logical_clock": 54,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 4"
+            },
+            {
+                "customer-request-id": 16,
+                "logical_clock": 55,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 5"
+            },
+            {
+                "customer-request-id": 16,
+                "logical_clock": 56,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 6"
+            },
+            {
+                "customer-request-id": 16,
+                "logical_clock": 57,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 7"
             },
             {
-                "customer-request-id": 16,
-                "logical_clock": 69,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 9"
-            },
-            {
-                "customer-request-id": 14,
-                "logical_clock": 72,
+                "customer-request-id": 2,
+                "logical_clock": 65,
                 "interface": "propagate_withdraw",
                 "comment": "event_recv from branch 8"
             },
             {
                 "customer-request-id": 16,
-                "logical_clock": 73,
+                "logical_clock": 66,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 9"
+            },
+            {
+                "customer-request-id": 16,
+                "logical_clock": 67,
                 "interface": "propagate_withdraw",
                 "comment": "event_sent to branch 10"
             },
             {
-                "customer-request-id": 10,
-                "logical_clock": 74,
+                "customer-request-id": 20,
+                "logical_clock": 68,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 8"
+            },
+            {
+                "customer-request-id": 12,
+                "logical_clock": 71,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 8"
+            },
+            {
+                "customer-request-id": 18,
+                "logical_clock": 72,
                 "interface": "propagate_withdraw",
                 "comment": "event_recv from branch 8"
             }
@@ -1930,40 +1930,52 @@
                 "comment": "event_sent to branch 8"
             },
             {
-                "customer-request-id": 17,
-                "logical_clock": 11,
-                "interface": "propagate_deposit",
-                "comment": "event_sent to branch 10"
-            },
-            {
-                "customer-request-id": 11,
-                "logical_clock": 32,
-                "interface": "propagate_deposit",
-                "comment": "event_recv from branch 9"
-            },
-            {
-                "customer-request-id": 15,
-                "logical_clock": 33,
+                "customer-request-id": 3,
+                "logical_clock": 20,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 9"
             },
             {
                 "customer-request-id": 5,
-                "logical_clock": 34,
+                "logical_clock": 26,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 9"
             },
             {
-                "customer-request-id": 3,
-                "logical_clock": 35,
+                "customer-request-id": 9,
+                "logical_clock": 29,
+                "interface": "propagate_deposit",
+                "comment": "event_recv from branch 9"
+            },
+            {
+                "customer-request-id": 13,
+                "logical_clock": 31,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 9"
             },
             {
                 "customer-request-id": 7,
-                "logical_clock": 36,
+                "logical_clock": 32,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 9"
+            },
+            {
+                "customer-request-id": 11,
+                "logical_clock": 34,
+                "interface": "propagate_deposit",
+                "comment": "event_recv from branch 9"
+            },
+            {
+                "customer-request-id": 15,
+                "logical_clock": 35,
+                "interface": "propagate_deposit",
+                "comment": "event_recv from branch 9"
+            },
+            {
+                "customer-request-id": 17,
+                "logical_clock": 36,
+                "interface": "propagate_deposit",
+                "comment": "event_sent to branch 10"
             },
             {
                 "customer-request-id": 1,
@@ -1972,136 +1984,124 @@
                 "comment": "event_recv from branch 9"
             },
             {
-                "customer-request-id": 9,
-                "logical_clock": 38,
-                "interface": "propagate_deposit",
-                "comment": "event_recv from branch 9"
-            },
-            {
-                "customer-request-id": 13,
-                "logical_clock": 39,
-                "interface": "propagate_deposit",
-                "comment": "event_recv from branch 9"
-            },
-            {
-                "customer-request-id": 19,
-                "logical_clock": 40,
-                "interface": "propagate_deposit",
-                "comment": "event_recv from branch 9"
-            },
-            {
-                "customer-request-id": 18,
-                "logical_clock": 41,
-                "interface": "withdraw",
-                "comment": "event_recv from customer 9"
-            },
-            {
-                "customer-request-id": 18,
-                "logical_clock": 42,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 1"
-            },
-            {
-                "customer-request-id": 18,
-                "logical_clock": 43,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 2"
-            },
-            {
-                "customer-request-id": 18,
-                "logical_clock": 44,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 3"
-            },
-            {
-                "customer-request-id": 18,
-                "logical_clock": 45,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 4"
-            },
-            {
-                "customer-request-id": 18,
-                "logical_clock": 46,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 5"
-            },
-            {
-                "customer-request-id": 18,
-                "logical_clock": 47,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 6"
-            },
-            {
-                "customer-request-id": 18,
-                "logical_clock": 48,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 7"
-            },
-            {
-                "customer-request-id": 18,
-                "logical_clock": 49,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 8"
-            },
-            {
-                "customer-request-id": 8,
-                "logical_clock": 61,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 9"
-            },
-            {
                 "customer-request-id": 4,
-                "logical_clock": 62,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 9"
-            },
-            {
-                "customer-request-id": 18,
-                "logical_clock": 63,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 10"
-            },
-            {
-                "customer-request-id": 2,
-                "logical_clock": 64,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 9"
-            },
-            {
-                "customer-request-id": 12,
-                "logical_clock": 67,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 9"
-            },
-            {
-                "customer-request-id": 20,
-                "logical_clock": 68,
+                "logical_clock": 38,
                 "interface": "propagate_withdraw",
                 "comment": "event_recv from branch 9"
             },
             {
                 "customer-request-id": 6,
-                "logical_clock": 69,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 9"
-            },
-            {
-                "customer-request-id": 16,
-                "logical_clock": 70,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 9"
-            },
-            {
-                "customer-request-id": 14,
-                "logical_clock": 73,
+                "logical_clock": 39,
                 "interface": "propagate_withdraw",
                 "comment": "event_recv from branch 9"
             },
             {
                 "customer-request-id": 10,
-                "logical_clock": 74,
+                "logical_clock": 46,
                 "interface": "propagate_withdraw",
                 "comment": "event_recv from branch 9"
+            },
+            {
+                "customer-request-id": 14,
+                "logical_clock": 47,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 9"
+            },
+            {
+                "customer-request-id": 8,
+                "logical_clock": 50,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 9"
+            },
+            {
+                "customer-request-id": 19,
+                "logical_clock": 51,
+                "interface": "propagate_deposit",
+                "comment": "event_recv from branch 9"
+            },
+            {
+                "customer-request-id": 18,
+                "logical_clock": 52,
+                "interface": "withdraw",
+                "comment": "event_recv from customer 9"
+            },
+            {
+                "customer-request-id": 18,
+                "logical_clock": 53,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 1"
+            },
+            {
+                "customer-request-id": 18,
+                "logical_clock": 54,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 2"
+            },
+            {
+                "customer-request-id": 18,
+                "logical_clock": 55,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 3"
+            },
+            {
+                "customer-request-id": 18,
+                "logical_clock": 56,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 4"
+            },
+            {
+                "customer-request-id": 18,
+                "logical_clock": 57,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 5"
+            },
+            {
+                "customer-request-id": 18,
+                "logical_clock": 58,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 6"
+            },
+            {
+                "customer-request-id": 2,
+                "logical_clock": 66,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 9"
+            },
+            {
+                "customer-request-id": 16,
+                "logical_clock": 67,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 9"
+            },
+            {
+                "customer-request-id": 18,
+                "logical_clock": 68,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 7"
+            },
+            {
+                "customer-request-id": 18,
+                "logical_clock": 69,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 8"
+            },
+            {
+                "customer-request-id": 20,
+                "logical_clock": 70,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 9"
+            },
+            {
+                "customer-request-id": 12,
+                "logical_clock": 72,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 9"
+            },
+            {
+                "customer-request-id": 18,
+                "logical_clock": 73,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 10"
             }
         ]
     },
@@ -2170,61 +2170,31 @@
                 "comment": "event_sent to branch 9"
             },
             {
-                "customer-request-id": 17,
-                "logical_clock": 12,
-                "interface": "propagate_deposit",
-                "comment": "event_recv from branch 10"
-            },
-            {
-                "customer-request-id": 7,
-                "logical_clock": 27,
-                "interface": "propagate_deposit",
-                "comment": "event_recv from branch 10"
-            },
-            {
-                "customer-request-id": 20,
-                "logical_clock": 28,
-                "interface": "withdraw",
-                "comment": "event_recv from customer 10"
-            },
-            {
-                "customer-request-id": 20,
-                "logical_clock": 29,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 1"
-            },
-            {
                 "customer-request-id": 3,
-                "logical_clock": 30,
-                "interface": "propagate_deposit",
-                "comment": "event_recv from branch 10"
-            },
-            {
-                "customer-request-id": 20,
-                "logical_clock": 31,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 2"
-            },
-            {
-                "customer-request-id": 1,
-                "logical_clock": 32,
-                "interface": "propagate_deposit",
-                "comment": "event_recv from branch 10"
-            },
-            {
-                "customer-request-id": 11,
-                "logical_clock": 33,
+                "logical_clock": 21,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 10"
             },
             {
                 "customer-request-id": 5,
-                "logical_clock": 34,
+                "logical_clock": 27,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 10"
             },
             {
-                "customer-request-id": 15,
+                "customer-request-id": 4,
+                "logical_clock": 36,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 10"
+            },
+            {
+                "customer-request-id": 6,
+                "logical_clock": 38,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 10"
+            },
+            {
+                "customer-request-id": 9,
                 "logical_clock": 39,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 10"
@@ -2236,104 +2206,134 @@
                 "comment": "event_recv from branch 10"
             },
             {
-                "customer-request-id": 9,
+                "customer-request-id": 7,
                 "logical_clock": 41,
                 "interface": "propagate_deposit",
                 "comment": "event_recv from branch 10"
             },
             {
-                "customer-request-id": 20,
-                "logical_clock": 42,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 3"
-            },
-            {
-                "customer-request-id": 20,
-                "logical_clock": 43,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 4"
-            },
-            {
-                "customer-request-id": 20,
-                "logical_clock": 44,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 5"
-            },
-            {
-                "customer-request-id": 20,
-                "logical_clock": 45,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 6"
-            },
-            {
-                "customer-request-id": 20,
-                "logical_clock": 46,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 7"
-            },
-            {
-                "customer-request-id": 20,
+                "customer-request-id": 10,
                 "logical_clock": 47,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 8"
-            },
-            {
-                "customer-request-id": 18,
-                "logical_clock": 64,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 10"
-            },
-            {
-                "customer-request-id": 8,
-                "logical_clock": 65,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 10"
-            },
-            {
-                "customer-request-id": 4,
-                "logical_clock": 66,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 10"
-            },
-            {
-                "customer-request-id": 20,
-                "logical_clock": 67,
-                "interface": "propagate_withdraw",
-                "comment": "event_sent to branch 9"
-            },
-            {
-                "customer-request-id": 2,
-                "logical_clock": 68,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 10"
-            },
-            {
-                "customer-request-id": 12,
-                "logical_clock": 69,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 10"
-            },
-            {
-                "customer-request-id": 6,
-                "logical_clock": 70,
-                "interface": "propagate_withdraw",
-                "comment": "event_recv from branch 10"
-            },
-            {
-                "customer-request-id": 16,
-                "logical_clock": 74,
                 "interface": "propagate_withdraw",
                 "comment": "event_recv from branch 10"
             },
             {
                 "customer-request-id": 14,
-                "logical_clock": 75,
+                "logical_clock": 48,
                 "interface": "propagate_withdraw",
                 "comment": "event_recv from branch 10"
             },
             {
-                "customer-request-id": 10,
-                "logical_clock": 76,
+                "customer-request-id": 8,
+                "logical_clock": 51,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 10"
+            },
+            {
+                "customer-request-id": 1,
+                "logical_clock": 52,
+                "interface": "propagate_deposit",
+                "comment": "event_recv from branch 10"
+            },
+            {
+                "customer-request-id": 15,
+                "logical_clock": 53,
+                "interface": "propagate_deposit",
+                "comment": "event_recv from branch 10"
+            },
+            {
+                "customer-request-id": 11,
+                "logical_clock": 54,
+                "interface": "propagate_deposit",
+                "comment": "event_recv from branch 10"
+            },
+            {
+                "customer-request-id": 17,
+                "logical_clock": 55,
+                "interface": "propagate_deposit",
+                "comment": "event_recv from branch 10"
+            },
+            {
+                "customer-request-id": 20,
+                "logical_clock": 56,
+                "interface": "withdraw",
+                "comment": "event_recv from customer 10"
+            },
+            {
+                "customer-request-id": 20,
+                "logical_clock": 57,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 1"
+            },
+            {
+                "customer-request-id": 20,
+                "logical_clock": 58,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 2"
+            },
+            {
+                "customer-request-id": 20,
+                "logical_clock": 59,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 3"
+            },
+            {
+                "customer-request-id": 20,
+                "logical_clock": 60,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 4"
+            },
+            {
+                "customer-request-id": 20,
+                "logical_clock": 61,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 5"
+            },
+            {
+                "customer-request-id": 20,
+                "logical_clock": 62,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 6"
+            },
+            {
+                "customer-request-id": 20,
+                "logical_clock": 63,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 7"
+            },
+            {
+                "customer-request-id": 20,
+                "logical_clock": 64,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 8"
+            },
+            {
+                "customer-request-id": 2,
+                "logical_clock": 67,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 10"
+            },
+            {
+                "customer-request-id": 16,
+                "logical_clock": 68,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 10"
+            },
+            {
+                "customer-request-id": 20,
+                "logical_clock": 69,
+                "interface": "propagate_withdraw",
+                "comment": "event_sent to branch 9"
+            },
+            {
+                "customer-request-id": 18,
+                "logical_clock": 74,
+                "interface": "propagate_withdraw",
+                "comment": "event_recv from branch 10"
+            },
+            {
+                "customer-request-id": 12,
+                "logical_clock": 75,
                 "interface": "propagate_withdraw",
                 "comment": "event_recv from branch 10"
             }

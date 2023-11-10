@@ -14,6 +14,9 @@ BRANCH_OUTPUT_FILE = 'branch_output.json'
 CUSTOMER_OUTPUT_FILE = 'customer_output.json'
 final_output = []
 
+# Run branch process to create GRPC server.
+# Args:
+#     branch (Branch): Branch instance
 def run_branch(branch: Branch):
     branch.create_stubs()
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
@@ -24,12 +27,18 @@ def run_branch(branch: Branch):
     print(f'Starting server for branch {branch.id} at 127.0.0.1:{port}')
     server.start()
     server.wait_for_termination()
-    
+
+# Run Customer branch to create customer processes.
+# Args:
+#     customer (Customer): Customer instance.
 def run_customer(customer: Customer):
     customer.create_stub()
     customer.execute_events()
 
-def create_process(processes):
+# Create process from all events
+#    Args:
+#        processes (list): list of processes of type branch and customer.
+def create_process(processes: list):
     customers = []
     customer_processes =  []
 
@@ -106,7 +115,7 @@ def create_process(processes):
         with open(BRANCH_OUTPUT_FILE, 'w') as f:
             f.write(final_res)
 
-
+# Create the final output file of all events.
 def create_output_file():
     sorted_output = sorted(final_output, key=lambda event : (event['customer-request-id'], event['logical_clock']))
     final_res = json.dumps(sorted_output, indent=4)

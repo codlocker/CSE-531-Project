@@ -4,14 +4,19 @@ import BankService2_pb2
 import BankService2_pb2_grpc
 
 class Customer:
-    def __init__(self, id, events) -> None:
+    # Initialize an constructor for Customer class.
+    # Args:
+    #    id (int): Customer ID
+    #    events (list): list of customer events.
+    #
+    def __init__(self, id: int, events: list) -> None:
         self.id = id
         self.events = events
         self.cust_events = Manager().list()
         self.stub = None
         self.clock = 1
-
-
+    
+    # Create stubs for customers.
     def create_stub(self):
         port = str(50000 + self.id)
         channel = grpc.insecure_channel(f"localhost:{port}")
@@ -19,6 +24,7 @@ class Customer:
         print(f"Creating a stub for customer #{self.id} to branch at localhost:{port}")
         self.stub = BankService2_pb2_grpc.BankService2Stub(channel=channel)
 
+    # Execute customer events and send the message to the branch.
     def execute_events(self):
         for event in self.events:
             print(f'Clock : {self.clock} Customer {self.id} sending event {event["customer-request-id"]} to branch {self.id} => Event: {event["interface"]}'
@@ -42,5 +48,6 @@ class Customer:
 
             self.clock += 1
 
+    # Return the list of customer events processed.
     def output(self):
         return list(self.cust_events)
