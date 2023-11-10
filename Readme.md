@@ -1,6 +1,4 @@
-## PROJECT 1
----------------------------
-### SETUP FOR WINDOWS
+## GENERAL SETUP FOR WINDOWS
 
 1. Install git (version **2.40.1.windows.1**}) [Windows](https://git-scm.com/download/win)
 2. Install python version **3.9.13** [Windows](https://www.python.org/downloads/). Ensure python is accessible via [Powershell](https://learn.microsoft.com/en-us/windows/python/beginners)
@@ -11,7 +9,10 @@
    - protobuf==3.14.0
 5. Activate the newly created environment
 6. Clone the repository [CSE-531-Project](https://github.com/codlocker/CSE-531-Project)
-   - ```git clone https://github.com/codlocker/CSE-531-Project.git``` 
+   - ```git clone https://github.com/codlocker/CSE-531-Project.git```
+
+## PROJECT 1
+---------------------------
 
 ### RUN INSTRUCTIONS
 1. Run the command ```cd CSE-531-Project/Project 1``` after cloning
@@ -30,18 +31,6 @@
 
 ## PROJECT 2
 ---------------------------
-### SETUP FOR WINDOWS
-
-1. Install git (version **2.40.1.windows.1**}) [Windows](https://git-scm.com/download/win)
-2. Install python version **3.9.13** [Windows](https://www.python.org/downloads/). Ensure python is accessible via [Powershell](https://learn.microsoft.com/en-us/windows/python/beginners)
-3. Install pip version **23.2.1**``` py -m ensurepip --upgrade ``` [Source](https://pip.pypa.io/en/stable/installation/)
-4. Create a new [virtual environment](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/) for pip and install the following packages
-   - grpcio==1.59.0
-   - grpcio-tools==1.33.2
-   - protobuf==3.14.0
-5. Activate the newly created environment
-6. Clone the repository [CSE-531-Project](https://github.com/codlocker/CSE-531-Project)
-   - ```git clone https://github.com/codlocker/CSE-531-Project.git``` 
 
 ### RUN INSTRUCTIONS
 1. Run the command ```cd CSE-531-Project/Project 2``` after cloning
