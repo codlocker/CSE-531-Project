@@ -29,24 +29,6 @@ def run_customer(customer: Customer):
     customer.create_stub()
     customer.execute_events()
 
-    sleep(0.5 * customer.id)
-    res = json.load(open(CUSTOMER_OUTPUT_FILE))
-    res.append(
-        {
-            'id': customer.id, 
-            'type': 'customer', 
-            'events': customer.output()
-        })
-    
-    # for event in customer.output():
-    #    event['id'] = customer.id
-    #    event['type'] = 'customer'
-    #    final_output.append(event)
-    
-    final_res = json.dumps(res, indent=4)
-    with open(CUSTOMER_OUTPUT_FILE, 'w') as f:
-        f.write(final_res)
-
 def create_process(processes):
     customers = []
     customer_processes =  []
@@ -75,9 +57,6 @@ def create_process(processes):
         branch_processes.append(branch_process)
         branch_process.start()
 
-    # print(f'Sleep for {2} seconds after branch server creation')
-    # sleep(2)
-
     # Create Customer processes
     for customer in customers:
         customer_process = multiprocessing.Process(target=run_customer, args=(customer,))
@@ -88,10 +67,27 @@ def create_process(processes):
     for cp in customer_processes:
         cp.join()
 
-    # sleep(1)
     
     for bp in branch_processes:
         bp.terminate()
+
+    for customer in customers:
+        res = json.load(open(CUSTOMER_OUTPUT_FILE))
+        res.append(
+            {
+                'id': customer.id, 
+                'type': 'customer', 
+                'events': customer.output()
+            })
+        
+        for event in customer.output():
+            event['id'] = customer.id
+            event['type'] = 'customer'
+            final_output.append(event)
+        
+        final_res = json.dumps(res, indent=4)
+        with open(CUSTOMER_OUTPUT_FILE, 'w') as f:
+            f.write(final_res)
 
     for branch in branches:
         res = json.load(open(BRANCH_OUTPUT_FILE))
@@ -102,10 +98,10 @@ def create_process(processes):
                 'events': branch.output()
             })
 
-        # for event in branch.output():
-        #    event['id'] = branch.id
-        #    event['type'] = 'branch'
-        #     final_output.append(event)
+        for event in branch.output():
+            event['id'] = branch.id
+            event['type'] = 'branch'
+            final_output.append(event)
         final_res = json.dumps(res, indent=4)
         with open(BRANCH_OUTPUT_FILE, 'w') as f:
             f.write(final_res)
@@ -135,7 +131,7 @@ if __name__ == "__main__":
         create_process(input)
 
         # Final output
-        # create_output_file()
+        create_output_file()
         
     except Exception as e:
         print(e)

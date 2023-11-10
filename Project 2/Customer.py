@@ -1,3 +1,4 @@
+from multiprocessing import Manager, Lock
 import grpc
 import BankService2_pb2
 import BankService2_pb2_grpc
@@ -6,7 +7,7 @@ class Customer:
     def __init__(self, id, events) -> None:
         self.id = id
         self.events = events
-        self.cust_events = list()
+        self.cust_events = Manager().list()
         self.stub = None
         self.clock = 1
 
@@ -42,4 +43,4 @@ class Customer:
             self.clock += 1
 
     def output(self):
-        return self.cust_events
+        return list(self.cust_events)
