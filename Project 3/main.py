@@ -80,10 +80,12 @@ def create_process(processes: list):
 
     final_output = json.load(open(OUTPUT_FILE))
     for customer in customers:
-        final_output.append({
-            'id': customer.id,
-            'recv': list(customer.messages)
-        })
+        for msg in list(customer.messages):
+            final_output.append({
+                'id': customer.id,
+                'recv': [msg]
+            })
+    
     final_res = json.dumps(final_output, indent=2)
     with open(OUTPUT_FILE, 'w') as f:
         f.write(final_res)
