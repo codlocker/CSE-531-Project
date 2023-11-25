@@ -62,7 +62,6 @@ class Branch(bs3_grpc.BankService3Servicer):
 
     #    Returns:
     #        MsgResponse: Response of the message.
-    
     def MsgPropagation(self, request: MsgRequest, context) -> MsgResponse:
         print(f"Branch #{self.id} receives prop event from branch #{request.branch} with interface={request.interface},"
                 + f" amount={request.money}")
@@ -75,8 +74,8 @@ class Branch(bs3_grpc.BankService3Servicer):
     #        is_propagated (bool): Verify if the message is from the customer or a branch
 
     #    Returns:
-    #        _type_: Response object.
-    def process_msg(self, request: MsgRequest, is_propagated: bool):
+    #        MsgResponse: Response object.
+    def process_msg(self, request: MsgRequest, is_propagated: bool) -> MsgResponse:
         res = "success"
         if request.interface == "query":
             pass
