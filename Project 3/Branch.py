@@ -9,20 +9,22 @@ class Branch(bs3_grpc.BankService3Servicer):
     #    id (int): Branch ID.
     #    balance (int): Branch balance.
     #    branches (list): List of branches.
-    def __init__(self, id: int, balance: int, branches: list) -> None:
+    #    src_port (int): Port start address
+    def __init__(self, id: int, balance: int, branches: list, src_port: int) -> None:
         self.id = id
         self.balance = balance
         self.branches = branches
         self.stub_list = []
         self.write_set = []
         self.lock = Lock()
+        self.addr = src_port
 
     # Creates stubs for branches to connect to other branches.
     def create_stubs(self):
         print(f"Creating stubs for Branch : {self.id}")
         for b_id in self.branches:
             if b_id != self.id:
-                port = str(50000 + b_id)
+                port = str(self.addr + b_id)
                 channel = grpc.insecure_channel(f"127.0.0.1:{port}")
                 print(f"Creating branch stub for #{b_id} to branch at channel 127.0.0.1:{port}")
                 self.stub_list.append((b_id, bs3_grpc.BankService3Stub(channel=channel)))
@@ -47,13 +49,21 @@ class Branch(bs3_grpc.BankService3Servicer):
 
     #    Returns:
     #        MsgResponse: return the response object.
-    def MsgDelivery(self, request: MsgRequest, context):
+    def MsgDelivery(self, request: MsgRequest, context) -> MsgResponse:
         print(f"Branch #{self.id} receives event from customer #{request.id} with interface={request.interface},"
                 + f" amount={request.money}")        
         if self.verify_writeset(request.writeset):
             return self.process_msg(request, False)
 
-    def MsgPropagation(self, request, context):
+    # Propagate the message from branch
+    #    Args:
+    #        request (MsgRequest): Request the propagation.
+    #        context (any): Context object
+
+    #    Returns:
+    #        MsgResponse: Response of the message.
+    
+    def MsgPropagation(self, request: MsgRequest, context) -> MsgResponse:
         print(f"Branch #{self.id} receives prop event from branch #{request.branch} with interface={request.interface},"
                 + f" amount={request.money}")
         if self.verify_writeset(request.writeset):

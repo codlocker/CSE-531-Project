@@ -2,12 +2,16 @@ import json
 import multiprocessing
 from time import sleep
 from concurrent import futures
+import random
 import sys
 
 import grpc
 import BankService3_pb2_grpc
 from Branch import Branch
 from Customer import Customer
+
+random.seed(0)
+src_port = random.randint(50000, 60000)
 
 OUTPUT_FILE = 'output.json'
 final_output = []
@@ -20,7 +24,7 @@ def run_branch(branch: Branch):
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     BankService3_pb2_grpc.add_BankService3Servicer_to_server(branch, server=server)
 
-    port = str(50000 + branch.id)
+    port = str(src_port + branch.id)
     server.add_insecure_port(f"127.0.0.1:{port}")
     print(f'Starting server for branch {branch.id} at 127.0.0.1:{port}')
     server.start()
@@ -49,13 +53,18 @@ def create_process(processes: list):
             branch = Branch(
                 id=process['id'],
                 balance=process['balance'],
-                branches=branchIds
+                branches=branchIds,
+                src_port=src_port
             )
             branches.append(branch)
             branchIds.append(branch.id)
         
         if process['type'] == 'customer':
-            customer = Customer(id=process['id'], events=process['events'])
+            customer = Customer(
+                id=process['id'], 
+                events=process['events'],
+                src_port=src_port)
+            
             customers.append(customer)
     
     # Create branch processes
@@ -96,12 +105,9 @@ if __name__ == "__main__":
 
     try:
         input = json.load(open(input_file))
-
         with open(OUTPUT_FILE, 'w') as f:
             f.write('[]')
 
         create_process(input)
-
-        
     except Exception as e:
         print(e)

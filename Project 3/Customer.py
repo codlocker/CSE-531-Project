@@ -5,19 +5,21 @@ from BankService3_pb2 import MsgRequest
 
 class Customer:
     # Initializes a constructor.
-    #    Args:
-    #        id (int): Branch ID.
-    #        events (list): List of events.
-    def __init__(self, id: int, events: list) -> None:
+    # Args:
+    #   id (int): Branch ID.
+    #   events (list): List of events.
+    #   src_port (int): Port start address
+    def __init__(self, id: int, events: list, src_port: int) -> None:
         self.id = id
         self.events = events
         self.messages = Manager().list()
         self.writeset = []
+        self.addr = src_port
 
     # Create stubs for customers.
     def create_stub(self):
-        port = str(50000 + self.id)
-        channel = grpc.insecure_channel(f"localhost:{port}")
+        port = str(self.addr + self.id)
+        channel = grpc.insecure_channel(f"127.0.0.1:{port}")
 
         print(f"Creating a stub for customer #{self.id} to branch at localhost:{port}")
         self.stub = BankService3_pb2_grpc.BankService3Stub(channel=channel)
@@ -32,7 +34,7 @@ class Customer:
                 print(f"Customer #{self.id} sends event #{event['id']} with interface={event['interface']},"
                     + f"to branch {event['branch']}")
             
-            port = str(50000 + event['branch'])
+            port = str(self.addr + event['branch'])
             channel = grpc.insecure_channel(f'127.0.0.1:{port}')
             stub = BankService3_pb2_grpc.BankService3Stub(channel=channel)
 
