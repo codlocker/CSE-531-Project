@@ -53,7 +53,7 @@ class Branch(bs3_grpc.BankService3Servicer):
         print(f"Branch #{self.id} receives event from customer #{request.id} with interface={request.interface},"
                 + f" amount={request.money}")        
         if self.verify_writeset(request.writeset):
-            return self.process_msg(request, False)
+            return self.process_message(request, False)
 
     # Propagate the message from branch
     #    Args:
@@ -66,7 +66,7 @@ class Branch(bs3_grpc.BankService3Servicer):
         print(f"Branch #{self.id} receives prop event from branch #{request.branch} with interface={request.interface},"
                 + f" amount={request.money}")
         if self.verify_writeset(request.writeset):
-            return self.process_msg(request, True)
+            return self.process_message(request, True)
     
     # Process event messages.
     #    Args:
@@ -75,7 +75,7 @@ class Branch(bs3_grpc.BankService3Servicer):
 
     #    Returns:
     #        MsgResponse: Response object.
-    def process_msg(self, request: MsgRequest, is_propagated: bool) -> MsgResponse:
+    def process_message(self, request: MsgRequest, is_propagated: bool) -> MsgResponse:
         res = "success"
         if request.interface == "query":
             pass

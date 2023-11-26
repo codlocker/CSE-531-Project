@@ -61,6 +61,6 @@ class Customer:
                     'balance': result.money
                 })
 
-            print(f"Resposne obtained: interface {result.interface} balance {result.money} status {result.response}")
+            print(f"Response obtained: interface {result.interface} balance {result.money} status {result.response}")
             if event['interface'] != 'query':
                 self.writeset = result.writeset
