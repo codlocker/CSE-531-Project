@@ -1,0 +1,23 @@
+syntax = "proto3";
+package BankService3;
+
+service BankService3 {
+    rpc MsgDelivery (MsgRequest) returns (MsgResponse) {}
+    rpc MsgPropagation(MsgRequest) returns (MsgResponse) {}
+}
+
+message MsgRequest {
+    int64 id = 1;
+    string interface = 2;
+    int64 money = 3;
+    int64 branch = 4;
+    repeated int32 writeset = 5;
+}
+
+message MsgResponse {
+    int64 id = 1;
+    string interface = 2;
+    string response = 3;
+    int64 money = 4;
+    repeated int32 writeset = 5;
+}
