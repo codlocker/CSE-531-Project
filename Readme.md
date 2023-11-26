@@ -53,3 +53,24 @@
 
 - Running the checker_scipt for overall we get
 ![Overall](Project-2-overall-checker.png)
+
+
+## PROJECT 3
+---------------------------
+
+### RUN INSTRUCTIONS
+1. Run the command ```cd CSE-531-Project/Project 3``` after cloning
+2. Run the following the command the build the proto files: ```python -m grpc_tools.protoc -I . .\BankService3.proto  --python_out=. --grpc_python_out=.```
+3. The entry point of the code is through main.py and add input.json or any name as the input file 
+   - Example command : ```python main.py input.json```
+
+4. To run the checker scripts. Note the file is output.json
+   - ```python checker.py output.json```
+  
+### RESULTS
+
+- Running the checker_scipt for small input
+![Customer](Project3-input_checker.png)
+
+- Running the checker_scipt for big input
+![Branch](Project3-input_big_checker.png)
