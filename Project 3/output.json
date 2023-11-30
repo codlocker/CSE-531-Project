@@ -15,7 +15,7 @@
       {
         "interface": "query",
         "branch": 1,
-        "balance": 400.0
+        "balance": 400
       }
     ]
   },
@@ -25,7 +25,7 @@
       {
         "interface": "query",
         "branch": 2,
-        "balance": 400.0
+        "balance": 400
       }
     ]
   }
