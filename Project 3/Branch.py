@@ -1,5 +1,6 @@
 import grpc
 from multiprocessing import Lock
+import time
 import BankService3_pb2_grpc as bs3_grpc
 from BankService3_pb2 import MsgRequest, MsgResponse
 
@@ -65,6 +66,11 @@ class Branch(bs3_grpc.BankService3Servicer):
     def MsgPropagation(self, request: MsgRequest, context) -> MsgResponse:
         print(f"Branch #{self.id} receives prop event from branch #{request.branch} with interface={request.interface},"
                 + f" amount={request.money}")
+        
+        while not self.verify_writeset(request.writeset):
+            print('Waiting till verification is complete')
+            time.sleep(0.5)
+        
         if self.verify_writeset(request.writeset):
             return self.process_message(request, True)
     
