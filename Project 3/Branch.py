@@ -53,6 +53,11 @@ class Branch(bs3_grpc.BankService3Servicer):
     def MsgDelivery(self, request: MsgRequest, context) -> MsgResponse:
         print(f"Branch #{self.id} receives event from customer #{request.id} with interface={request.interface},"
                 + f" amount={request.money}")        
+        
+        while not self.verify_writeset(request.writeset):
+            print('Waiting till verification is complete')
+            time.sleep(0.5)
+        
         if self.verify_writeset(request.writeset):
             return self.process_message(request, False)
 
